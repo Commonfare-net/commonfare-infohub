@@ -724,6 +724,14 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  * example.org, with all subdomains included.
  */
 
+$settings['trusted_host_patterns'] = array(
+  '^commonfare\.eu$',
+  '^.+\.commonfare\.eu$',
+  '^commonfare\.eu$',
+  '^.+\.commonfare\.eu$',
+  '^drupalvm\.dev$',
+);
+
 /**
  * The default list of directories that will be ignored by Drupal's file API.
  *

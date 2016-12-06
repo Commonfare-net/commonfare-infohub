@@ -1,8 +1,8 @@
 {
-    "name": "drupal-composer/drupal-project",
-    "description": "Project template for Drupal 8 projects with composer",
+    "name": "pienews/commonfare",
+    "description": "Commonfare platform",
     "type": "project",
-    "license": "GPL-2.0+",
+    "license": "MIT",
     "authors": [
         {
             "name": "",
@@ -22,7 +22,11 @@
         "drupal/core": "~8.0",
         "drush/drush": "~8.0",
         "drupal/console": "~1.0",
-        "drupal/devel": "1.x-dev"
+        "drupal/devel": "1.x-dev",
+        "drupal/drupal8_zymphonies_theme": "^1.0",
+        "drupal/token": "^1.0@beta",
+        "drupal/pathauto": "^1.0@beta",
+        "drupal/piwik": "^1.1"
     },
     "require-dev": {
         "behat/mink": "~1.7",
