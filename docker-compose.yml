@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  drupal:
+    image: drupal:8.2-apache
+    volumes:
+      - ./drupal/web/modules:/var/www/html/modules
+      - ./drupal/web/themes:/var/www/html/themes
+      - ./drupal/web/sites/default/files:/var/www/html/sites/default/files
+      - ./drupal/web/sites/default/private:/var/www/private
+    links:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+      MYSQL_DATABASE: drupal
+    volumes:
+      - ./data/mysql:/var/lib/mysql
