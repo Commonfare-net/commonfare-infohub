@@ -730,6 +730,7 @@ $settings['trusted_host_patterns'] = array(
   '^commonfare\.eu$',
   '^.+\.commonfare\.eu$',
   '^drupalvm\.dev$',
+  '^localhost$',
 );
 
 /**
@@ -765,7 +766,7 @@ $databases['default']['default'] = array (
   'username' => 'drupal',
   'password' => 'drupal',
   'prefix' => '',
-  'host' => 'localhost',
+  'host' => 'mariadb',
   'port' => '',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
