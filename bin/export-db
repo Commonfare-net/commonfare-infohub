@@ -1,0 +1,2 @@
+#docker-compose exec mariadb sh -c 'exec mysqldump --all-databases -uroot -p"root-password"' > databases.sql
+docker-compose exec mariadb sh -c 'exec mysqldump -udrupal -p"drupal" drupal' > drupal.sql
