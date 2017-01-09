@@ -1,1 +1,2 @@
- docker-compose exec --user 82 php drush
+#!/bin/sh
+docker-compose exec --user 82 php drush $@

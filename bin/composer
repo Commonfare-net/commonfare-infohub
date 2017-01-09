@@ -1,1 +1,3 @@
-docker-compose exec --user 82 php composer update
+#!/bin/sh
+docker-compose exec --user 82 php composer $@
+
