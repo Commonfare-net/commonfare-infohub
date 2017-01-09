@@ -26,7 +26,8 @@
         "drupal/drupal8_zymphonies_theme": "^1.0",
         "drupal/token": "^1.0@beta",
         "drupal/pathauto": "^1.0@beta",
-        "drupal/piwik": "^1.1"
+        "drupal/piwik": "^1.1",
+        "drupal/languageicons": "^1.0@beta"
     },
     "require-dev": {
         "behat/mink": "~1.7",
