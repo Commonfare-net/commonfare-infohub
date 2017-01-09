@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "986f458404d8cbd090bcf27f097d5043",
-    "content-hash": "453cf5e76c6240736436df64ea3962d5",
+    "hash": "ea4b0c7d8b20b5c430966647e06411df",
+    "content-hash": "eddde92315d54b208d9d2491fb1860d8",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1716,21 +1716,19 @@
             }
         },
         {
-            "name": "drupal/languageicons",
-            "version": "1.0.0-beta1",
+            "name": "drupal/flags",
+            "version": "dev-1.x",
             "source": {
                 "type": "git",
-                "url": "https://git.drupal.org/project/languageicons",
-                "reference": "8.x-1.0-beta1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/languageicons-8.x-1.0-beta1.zip",
-                "reference": "8.x-1.0-beta1",
-                "shasum": "04c54973eb82561f153e26ed3f562c5d71005181"
+                "url": "https://git.drupal.org/project/flags",
+                "reference": "10ddf5c3999582d7896af2dcb46dcde93ca1ae84"
             },
             "require": {
-                "drupal/core": "*"
+                "drupal/core": "~8.0"
+            },
+            "require-dev": {
+                "drupal/country": "*",
+                "drupal/languagefield": "*"
             },
             "type": "drupal-module",
             "extra": {
@@ -1738,8 +1736,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta1",
-                    "datestamp": "1452288839"
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1476572339"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -1748,19 +1746,24 @@
             ],
             "authors": [
                 {
-                    "name": "Freso",
-                    "homepage": "https://www.drupal.org/user/27504"
+                    "name": "SiliconMind",
+                    "homepage": "https://www.drupal.org/user/90277"
                 },
                 {
-                    "name": "pfrenssen",
-                    "homepage": "https://www.drupal.org/user/382067"
+                    "name": "matsbla",
+                    "homepage": "https://www.drupal.org/user/2325394"
+                },
+                {
+                    "name": "vlad.dancer",
+                    "homepage": "https://www.drupal.org/user/903844"
                 }
             ],
-            "description": "Adds icons to language links.",
-            "homepage": "https://www.drupal.org/project/languageicons",
+            "description": "Provides flags for countries and languages along with simple API.",
+            "homepage": "https://www.drupal.org/project/flags",
             "support": {
-                "source": "http://cgit.drupalcode.org/languageicons"
-            }
+                "source": "http://cgit.drupalcode.org/flags"
+            },
+            "time": "2016-10-15 22:54:55"
         },
         {
             "name": "drupal/pathauto",
@@ -6460,7 +6463,7 @@
         "drupal/devel": 20,
         "drupal/token": 10,
         "drupal/pathauto": 10,
-        "drupal/languageicons": 10
+        "drupal/flags": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
