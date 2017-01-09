@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ea4b0c7d8b20b5c430966647e06411df",
-    "content-hash": "eddde92315d54b208d9d2491fb1860d8",
+    "hash": "c52da2b9aa958e1a07943b3eeb00f04c",
+    "content-hash": "d564872e62646709b9f90282cc1e4d46",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -113,6 +113,24 @@
                 "stack"
             ],
             "time": "2016-08-01 12:05:04"
+        },
+        {
+            "name": "commonfare/commonfare_ui",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./src/commonfare_ui",
+                "reference": "303954439dc7c22244be2e50e84887ad71efb7ab",
+                "shasum": null
+            },
+            "type": "drupal-module",
+            "license": [
+                "MIT"
+            ],
+            "description": "commonfare ui integrations",
+            "transport-options": {
+                "symlink": true
+            }
         },
         {
             "name": "composer/installers",
@@ -6463,7 +6481,8 @@
         "drupal/devel": 20,
         "drupal/token": 10,
         "drupal/pathauto": 10,
-        "drupal/flags": 20
+        "drupal/flags": 20,
+        "commonfare/commonfare_ui": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

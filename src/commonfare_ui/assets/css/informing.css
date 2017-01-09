@@ -1,0 +1,26 @@
+
+.main-header:after {
+  background: rgba(119, 166, 162, 0.80);
+}
+
+
+#block-selettorelingua ul.links li a {
+  width: 16px;
+  display: block;
+  overflow: hidden;
+  height: 16px;
+}
+
+#block-selettorelingua {
+  height: 26px;
+}
+
+#block-selettorelingua ul.links {
+  float: right;
+  margin: 5px;
+}
+
+#block-selettorelingua ul.links li {
+  display: inline-block;
+  margin: 2px;
+}

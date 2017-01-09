@@ -1,0 +1,10 @@
+
+informing:
+  version: 1.x
+  css:
+    theme:
+      assets/css/informing.css: {}
+  js:
+    assets/js/informing.js: {}
+  dependencies:
+    - core/jquery
