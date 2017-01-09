@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d38ad43dd455431308a2d96ad1d0526b",
-    "content-hash": "966537c4e4fb6a4264448dde6b8a4f63",
+    "hash": "986f458404d8cbd090bcf27f097d5043",
+    "content-hash": "453cf5e76c6240736436df64ea3962d5",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1662,6 +1662,57 @@
             "homepage": "https://www.drupal.org/project/drupal8_zymphonies_theme",
             "support": {
                 "source": "http://cgit.drupalcode.org/drupal8_zymphonies_theme"
+            }
+        },
+        {
+            "name": "drupal/easy_breadcrumb",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/easy_breadcrumb",
+                "reference": "8.x-1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/easy_breadcrumb-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "b7f12392ea4d8325f6da080a79308cc424f614a1"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.5",
+                    "datestamp": "1475705039"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Boggs",
+                    "homepage": "https://www.drupal.org/user/153069"
+                },
+                {
+                    "name": "rakesh.gectcr",
+                    "homepage": "https://www.drupal.org/user/1177822"
+                },
+                {
+                    "name": "sonemonu",
+                    "homepage": "https://www.drupal.org/user/1667988"
+                }
+            ],
+            "description": "Adds configuration to the system breadcrumbs.",
+            "homepage": "https://www.drupal.org/project/easy_breadcrumb",
+            "support": {
+                "source": "http://cgit.drupalcode.org/easy_breadcrumb"
             }
         },
         {

@@ -27,7 +27,8 @@
         "drupal/token": "^1.0@beta",
         "drupal/pathauto": "^1.0@beta",
         "drupal/piwik": "^1.1",
-        "drupal/languageicons": "^1.0@beta"
+        "drupal/languageicons": "^1.0@beta",
+        "drupal/easy_breadcrumb": "^1.5"
     },
     "require-dev": {
         "behat/mink": "~1.7",
