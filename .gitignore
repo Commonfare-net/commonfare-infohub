@@ -19,3 +19,4 @@ backup/*
 data/*
 docker-runtime/*
 console/*
+.php_cs*
