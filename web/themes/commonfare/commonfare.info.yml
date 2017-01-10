@@ -7,8 +7,10 @@ package: core
 #Libraries
 libraries:
   - commonfare/bootstrap
+  - commonfare/hammer
+  - commonfare/gfonts
   - commonfare/global-components
-  - commonfare/commonfare_ui
+  - commonfare_ui/informing
 
 #Regions
 regions:

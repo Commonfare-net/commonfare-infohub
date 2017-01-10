@@ -1,43 +1,52 @@
 
+
+body {
+  font-family: 'Lora', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Asap', sans-serif;
+}
+
 header.main-header:after {
   background: rgba(119, 166, 162, 0.80);
 }
 
 
-#block-selettorelingua ul.links li a {
+#block-selettorelingua-2 ul.links li a {
   width: 16px;
   display: block;
   overflow: hidden;
   height: 16px;
 }
 
-#block-selettorelingua {
+#block-selettorelingua-2 {
   height: 26px;
 }
 
-#block-selettorelingua ul.links {
+#block-selettorelingua-2 ul.links {
   float: right;
   margin: 5px;
 }
 
-#block-selettorelingua ul.links li {
+#block-selettorelingua-2 ul.links li {
   display: inline-block;
   margin: 2px;
 }
 
-#block-mobile-main-navigation {
+#block-mobile-main-navigation-2 {
   background-color: #CCC;
 }
 
-#block-mobile-main-navigation .sm li {
+#block-mobile-main-navigation-2 .sm li {
   display: inline;
   border: 0 none;
 }
 
-#block-mobile-main-navigation .menu-base-theme a,
-#block-mobile-main-navigation .menu-base-theme a:focus,
-#block-mobile-main-navigation .menu-base-theme a:active,
-#block-mobile-main-navigation .menu-base-theme a.highlighted {
+#block-mobile-main-navigation-2 .menu-base-theme a,
+#block-mobile-main-navigation-2 .menu-base-theme a:focus,
+#block-mobile-main-navigation-2 .menu-base-theme a:active,
+#block-mobile-main-navigation-2 .menu-base-theme a.highlighted {
   display: inline-block;
   padding: 10px 20px;
   border: 0px none;
@@ -45,32 +54,117 @@ header.main-header:after {
   background-color: transparent;
 }
 
-#block-mobile-main-navigation .menu-base-theme a:active,
-#block-mobile-main-navigation .menu-base-theme a.is-active {
+#block-mobile-main-navigation-2 .menu-base-theme a:active,
+#block-mobile-main-navigation-2 .menu-base-theme a.is-active {
   color: #FFF;
 }
 
-#block-views-block-welfare-measure-sections-block-1 .term-item {
+#block-views-block-welfare-measure-sections-block-1-2 .term-item {
   padding: 0.15em;
 }
-#block-views-block-welfare-measure-sections-block-1 .term-item .views-field-nothing {
+#block-views-block-welfare-measure-sections-block-1-2 .term-item .views-field-nothing {
   background-color: #CCC;
   height: 7.5em;
 }
 
-#block-views-block-welfare-measure-sections-block-1 .term-item .title {
+#block-views-block-welfare-measure-sections-block-1-2 .term-item a.wrapper,
+#block-views-block-welfare-measure-sections-block-1-2 .term-item a.wrapper:active {
+  text-decoration: none;
+  color: #078D92;
+}
+
+#block-views-block-welfare-measure-sections-block-1-2 .term-item .active .desc {
+  padding: 0 0.25em;
+}
+
+#block-views-block-welfare-measure-sections-block-1-2 .term-item .active .desc,
+#block-views-block-welfare-measure-sections-block-1-2 .term-item .active .term-details {
+  display: inherit;
+}
+
+#block-views-block-welfare-measure-sections-block-1-2 .term-item .views-field-nothing.active
+{
+  background-color: #078D92;
+  position: absolute;
+  width: 200%;
+  height: 220px;
+  z-index: 999;
+  transition: all 0.5s ease;
+}
+
+#block-views-block-welfare-measure-sections-block-1-2 .term-item .views-field-nothing.active a.wrapper,
+#block-views-block-welfare-measure-sections-block-1-2 .term-item .views-field-nothing.active a.wrapper:active
+{
+  color: #FFF;
+}
+
+
+#block-views-block-welfare-measure-sections-block-1-2 .term-item .title {
   padding-top: 2.5em;
 }
+#block-views-block-welfare-measure-sections-block-1-2 .term-item .desc {
+  font-size: 0.8em;
+}
+
+.discover {
+}
+
+.discover span {
+  border-radius: 0.2em;
+  border: 1px solid #FFF;
+  padding: 0.25em 1em;
+  text-align: center;
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+}
+
 
 div.footer-menu .container {
   margin-top: 1.5em;
 }
 
-/* Extra small devices (phones, less than 768px) */
+.welfare-info .views-row {
+  background-color: #078D92;
+  padding: 1em 0.5em;
+  margin: 0.5em 0;
+  color: white;
+  min-height: 100px;
+}
+.welfare-info .views-row a {
+  color: white;
+}
+.welfare-info .views-row .views-field-title {
+  text-align: center;
+  font-family: 'Lora', serif;
+  font-size: 1.4em;
+}
+.welfare-info .views-row .views-field-field-country {
+  font-size: 0.8em;
+  float: right;
+}
+.welfare-info .views-row .views-field-field-short-description {
+  text-align: justify;
+  clear: both;
+  margin-top: 0.5em;
+}
+
+.node--type-welfare-organization .node__content .field__label {
+  margin-top: 1em;
+  background: linear-gradient(to right, rgba(237,237,237,1) 0%, rgba(246,246,246,0.84) 82%, rgba(255,255,255,0.6) 100%);
+  color: #078D92;
+  font-size: 1.2em;
+}
+
+
+
+
+
+/* Extra small devices (phones, less than 768px) asdsa*/
 /* No media query since this is the default in Bootstrap */
 
-#block-views-block-welfare-measure-sections-block-1 .term-item .desc,
-#block-views-block-welfare-measure-sections-block-1 .term-item .term-details {
+#block-views-block-welfare-measure-sections-block-1-2 .term-item .desc,
+#block-views-block-welfare-measure-sections-block-1-2 .term-item .term-details {
   display: none;
 }
 
@@ -92,7 +186,7 @@ div.footer-menu .container {
     display: block;
   }
 
-  #block-mobile-main-navigation {
+  #block-mobile-main-navigation-2 {
     display: none;
   }
 }

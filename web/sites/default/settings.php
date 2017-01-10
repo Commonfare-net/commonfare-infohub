@@ -731,6 +731,7 @@ $settings['trusted_host_patterns'] = array(
   '^.+\.commonfare\.eu$',
   '^drupalvm\.dev$',
   '^localhost$',
+  '^192.168.32.246$',
 );
 
 /**

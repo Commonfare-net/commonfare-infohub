@@ -8,7 +8,8 @@ package: core
 libraries:
   - drupal8_zymphonies_theme/bootstrap
   - drupal8_zymphonies_theme/global-components
-
+  - commonfare_ui/informing
+  
 #Regions
 regions:
   header: 'Header'

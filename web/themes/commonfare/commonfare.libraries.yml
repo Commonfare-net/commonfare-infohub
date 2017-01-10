@@ -1,3 +1,17 @@
+
+gfonts:
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Asap|Lora: { type: external }
+
+hammer:
+  version: 1.x
+  js:
+    js/hammer.min.js: {}
+    js/jquery.hammer.js: {}
+  dependencies:
+    - core/jquery
+
 bootstrap:
   version: 1.x
   css:
