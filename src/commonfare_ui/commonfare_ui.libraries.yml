@@ -6,5 +6,7 @@ informing:
       assets/css/informing.css: {}
   js:
     assets/js/informing.js: {}
+    assets/js/informing_group.js: {}
+    assets/js/informing_content.js: {}
   dependencies:
     - core/jquery
