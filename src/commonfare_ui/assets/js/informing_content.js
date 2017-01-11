@@ -98,14 +98,25 @@ Drupal.behaviors.informing_content_list = {
 
       if(!block.size()) return
 
-
       if(!isMobile()) {
+
         var termItem = block.find(".views-row")
         termItem.find('.title a').on('click', false)
         termItem.on("click", function(ev) {
           document.location = $(this).find('.title a').attr('href')
           return false
         })
+
+        // align blocks height
+        var maxh = 0
+        var w = block.find('.welfare-wrapper')
+        w.each(function() {
+          var _h = $(this).height()
+          maxh = _h > maxh ? _h : maxh
+        })
+
+        w.height(maxh)
+
         return
       }
 
@@ -118,15 +129,6 @@ Drupal.behaviors.informing_content_list = {
       setTitle($, title)
 
       setContentHeight($)
-
-      var maxh = 0
-      var w = block.find('.welfare-wrapper')
-      w.each(function() {
-        var _h = $(this).height()
-        maxh = _h > maxh ? _h : maxh
-      })
-
-      w.height(maxh)
 
     })
   }
