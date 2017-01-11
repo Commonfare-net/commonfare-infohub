@@ -28,7 +28,8 @@ services:
       - ./:/var/www/html
 
   nginx:
-    image: wodby/drupal-nginx
+    # image: wodby/drupal-nginx
+    build: ./drupal-nginx
     environment:
       NGINX_SERVER_NAME: localhost
       NGINX_UPSTREAM_NAME: php

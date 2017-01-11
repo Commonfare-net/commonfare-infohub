@@ -6,6 +6,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Asap', sans-serif;
+  color: #078D92;
 }
 
 header.main-header:after {
@@ -89,7 +90,7 @@ header.main-header:after {
   width: 200%;
   height: 220px;
   z-index: 999;
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
 }
 
 #block-views-block-welfare-measure-sections-block-1-2 .term-item .views-field-nothing.active a.wrapper,
@@ -119,9 +120,12 @@ header.main-header:after {
   margin: 0 auto;
 }
 
-
 div.footer-menu .container {
   margin-top: 1.5em;
+}
+
+.welfare-info header h2 {
+  display: none;
 }
 
 .welfare-info .welfare-wrapper {
@@ -156,8 +160,54 @@ div.footer-menu .container {
   font-size: 1.2em;
 }
 
+/* informing homepage */
+.is-mobile.page-node-type-page .main-header,
+.is-mobile .footer-menu,
+.is-mobile .copyright
+{
+  display: none;
+}
 
+/* informing section*/
+.is-mobile.path-informing #block-mobile-main-navigation-2,
+.is-mobile.path-informing #page-title,
+.is-mobile.path-informing #block-commonfare-branding
+{
+  display: none;
+}
+.is-mobile.path-informing header.main-header:after {
+    background: white;
+}
+.is-mobile.path-informing .main-header {
+    margin-bottom: 0;
+}
+#mobile-title {
+  color: #888;
+  padding: 1em 0;
+  text-align: center;
+  font-family: 'Lora', serif;
+  text-transform: uppercase;
+}
 
+/* informing welfare node */
+.is-mobile.page-node-type-welfare-organization #block-commonfare-branding {
+  display: none;
+}
+.is-mobile.page-node-type-welfare-organization header.main-header:after {
+  background: #77a6a2;
+}
+.page-node-type-welfare-organization .region-page-title h1 {
+  color: #078D92;
+  padding-bottom: 1em;
+  border-bottom: 2pt solid #078D92;
+}
+.page-node-type-welfare-organization #mobile-title,
+.page-node-type-welfare-organization #mobile-title a {
+  color: #FFF !important;
+}
+.page-node-type-welfare-organization .field--name-field-tags {
+  display: none;
+}
 
 
 /* Extra small devices (phones, less than 768px) asdsa*/
@@ -176,6 +226,9 @@ div.footer-menu .container {
   display: none;
 }
 
+.welfare-info header {
+  display: none;
+}
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -183,6 +236,9 @@ div.footer-menu .container {
     display: block;
   }
   nav.breadcrumb {
+    display: block;
+  }
+  .welfare-info header {
     display: block;
   }
 
