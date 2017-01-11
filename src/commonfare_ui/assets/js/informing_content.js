@@ -119,6 +119,15 @@ Drupal.behaviors.informing_content_list = {
 
       setContentHeight($)
 
+      var maxh = 0
+      var w = block.find('.welfare-wrapper')
+      w.each(function() {
+        var _h = $(this).height()
+        maxh = _h > maxh ? _h : maxh
+      })
+
+      w.height(maxh)
+
     })
   }
 };
