@@ -1,3 +1,0 @@
-[submodule "drupal-nginx"]
-	path = drupal-nginx
-	url = https://github.com/wodby/drupal-nginx.git
