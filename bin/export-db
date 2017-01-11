@@ -3,5 +3,5 @@
 #docker-compose exec mariadb sh -c 'exec mysqldump --all-databases -uroot -p"root-password"' > databases.sql
 #docker-compose exec mariadb sh -c 'exec mysqldump -udrupal -p"drupal" drupal' > drupal.sql
 
-NOW=`date +"%F_%T_%Z"`
+NOW=`date +"%F_%H-%M-%S_%Z"`
 ./bin/drupal database:dump --file=/var/www/html/backup/drupal_${NOW}.sql --gz

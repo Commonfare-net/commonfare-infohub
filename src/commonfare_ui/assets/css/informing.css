@@ -124,26 +124,26 @@ div.footer-menu .container {
   margin-top: 1.5em;
 }
 
-.welfare-info .views-row {
+.welfare-info .welfare-wrapper {
   background-color: #078D92;
   padding: 1em 0.5em;
   margin: 0.5em 0;
   color: white;
   min-height: 100px;
 }
-.welfare-info .views-row a {
+.welfare-info .welfare-wrapper a {
   color: white;
 }
-.welfare-info .views-row .views-field-title {
+.welfare-info .welfare-wrapper .title {
   text-align: center;
   font-family: 'Lora', serif;
   font-size: 1.4em;
 }
-.welfare-info .views-row .views-field-field-country {
+.welfare-info .welfare-wrapper .country {
   font-size: 0.8em;
   float: right;
 }
-.welfare-info .views-row .views-field-field-short-description {
+.welfare-info .welfare-wrapper .desc {
   text-align: justify;
   clear: both;
   margin-top: 0.5em;
