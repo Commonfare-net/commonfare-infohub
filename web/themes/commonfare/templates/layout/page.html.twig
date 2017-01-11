@@ -80,7 +80,7 @@
       <div class="col-md-9">
         {% if page.primary_menu %}
           {{ page.primary_menu }}
-        {% endif %}      
+        {% endif %}
       </div>
       <!--End Navigation -->
 
@@ -89,7 +89,7 @@
   </nav>
 
   <!-- Banner -->
-  {% if is_front and page.welcome_banner_text %}  
+  {% if is_front and page.welcome_banner_text %}
     <div class="container welcome-banner-text">
       <div class="row">
         <div class="col-md-12">
@@ -118,12 +118,12 @@
 
 
 <!-- Start Top Widget -->
-{% if is_front %}  
+{% if is_front %}
   {% if page.topwidget_first or page.topwidget_second or page.topwidget_third %}
     <div class="topwidget">
       <!-- start: Container -->
       <div class="container">
-        
+
         <div class="row">
           <!-- Top widget first region -->
           <div class = {{ topwidget_class }}>
@@ -153,7 +153,6 @@
 {% endif %}
 <!--End Top Widget -->
 
-
 <!-- Page Title -->
 {%  if page.page_title and not is_front %}
   <div id="page-title">
@@ -172,7 +171,7 @@
 <div id="wrapper">
   <!-- start: Container -->
   <div class="container">
-    
+
     <!--Content top-->
       {% if page.content_top %}
         <div class="row">
@@ -180,7 +179,7 @@
         </div>
       {% endif %}
     <!--End Content top-->
-    
+
     <!--start:content -->
     <div class="row">
       <div class="col-md-12">{{ page.breadcrumb }}</div>
@@ -216,7 +215,7 @@
         </div>
       {% endif %}
       <!---End Right SideBar -->
-      
+
     </div>
     <!--End Content -->
 
@@ -237,12 +236,12 @@
 
 
 <!-- Start bottom -->
-{% if is_front %}  
+{% if is_front %}
   {% if page.bottom_first or page.bottom_second or page.bottom_third %}
     <div class="bottom-widgets">
       <!-- Start Container -->
       <div class="container">
-        
+
         <div class="row">
 
           <!-- Start Bottom First Region -->
@@ -289,9 +288,9 @@
 {% if  is_front and (page.footer_first or page.footer_second or page.footer_third) %}
   <div class="footerwidget">
     <div class="container">
-      
+
       <div class="row">
-        
+
         <!-- Start Footer First Region -->
         <div class = {{ footer_class }}>
           {% if page.footer_first %}
@@ -366,8 +365,8 @@
 
       <!-- Copyright -->
       <div class="col-sm-6 col-md-6">
-        {% if copyright_text %}        
-          <p>{{copyright_text}}</p>        
+        {% if copyright_text %}
+          <p>{{copyright_text}}</p>
         {% endif %}
       </div>
       <!-- End Copyright -->
@@ -379,7 +378,7 @@
         </div>
       {% endif %}
       <!-- End Credit link -->
-      
+
     </div>
   </div>
 </div>

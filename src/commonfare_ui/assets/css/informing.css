@@ -48,7 +48,7 @@ header.main-header:after {
 #block-mobile-main-navigation-2 .menu-base-theme a:active,
 #block-mobile-main-navigation-2 .menu-base-theme a.highlighted {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 18px;
   border: 0px none;
   color: #333;
   background-color: transparent;

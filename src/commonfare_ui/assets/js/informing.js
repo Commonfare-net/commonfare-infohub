@@ -1,3 +1,4 @@
+
 Drupal.behaviors.commonfare_ui = {
   attach: function (context, settings) {
     jQuery(function ($) {
@@ -15,8 +16,19 @@ Drupal.behaviors.commonfare_ui = {
         if (e) {
           var btn = $(e.target)
           if(btn.is(".term-details") || btn.parent().is(".term-details")) {
+
             var tid = btn.data("tid") || btn.parent().data("tid");
-            document.location.pathname = "/informing/" + tid;
+
+            var parts = document.location.pathname.split('/')
+            var lang = ""
+
+            if (parts.length > 0) {
+              if (parts[1].length == 2) {
+                lang += "/" + parts[1]
+              }
+            }
+
+            document.location.pathname = lang + "/informing/" + tid;
             return false;
           }
         }
