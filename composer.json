@@ -37,7 +37,8 @@
         "drupal/piwik": "^1.1",
         "drupal/easy_breadcrumb": "^1.5",
         "drupal/flags": "1.x-dev",
-        "commonfare/commonfare_ui": "dev-master"
+        "commonfare/commonfare_ui": "dev-master",
+        "drupal/admin_toolbar": "^1.18"
     },
     "require-dev": {
         "behat/mink": "~1.7",
