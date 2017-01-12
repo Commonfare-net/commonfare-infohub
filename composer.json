@@ -3,24 +3,25 @@
     "description": "Commonfare platform",
     "type": "project",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "",
-            "role": ""
-        }
-    ],
-    "repositories": [
+    "authors": [{
+        "name": "",
+        "role": ""
+    }],
+    "repositories": [{
+            "type": "vcs",
+            "url": "https://github.com/backupmigrate/backup_migrate_core"
+        },
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
         {
-          "name": "commonfare/commonfare_ui",
-          "type": "path",
-          "url": "./src/commonfare_ui",
-          "options": {
-              "symlink": true
-          }
+            "name": "commonfare/commonfare_ui",
+            "type": "path",
+            "url": "./src/commonfare_ui",
+            "options": {
+                "symlink": true
+            }
         }
     ],
     "require": {
