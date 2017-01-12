@@ -41,7 +41,7 @@
         "commonfare/commonfare_ui": "dev-master",
         "drupal/admin_toolbar": "^1.18",
         "drupal/menu_trail_by_path": "^1.1",
-        "drupal/backup_migrate": "^4.x-dev"
+        "drupal/backup_migrate": "4.x-dev"
     },
     "require-dev": {
         "behat/mink": "~1.7",
