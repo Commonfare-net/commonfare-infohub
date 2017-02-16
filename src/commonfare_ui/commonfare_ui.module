@@ -15,20 +15,42 @@ function render_page($nid) {
   return $output;
 }
 
-function commonfare_ui_preprocess_page__front(array &$variables)
-{
-
-  $variables['page']['learn_how'] = t("Learn How");
-
+function getPages() {
   $pages = \Drupal::config('commonfare_ui.settings')->get('pages');
   if (!$pages) {
     $config = \Drupal::service('config.factory')->getEditable('commonfare_ui.settings');
     $config->set('pages', commonfare_pages);
     $pages = commonfare_pages;
   }
+  return $pages;
+}
 
+function commonfare_ui_preprocess_page__front(array &$variables)
+{
+
+  $variables['page']['learn_how'] = t("Learn How");
+  $pages = getPages();
   foreach ($pages as $label => $nid) {
     $variables['page'][$label] = render_page($nid);
   }
 
 }
+
+
+// function commonfare_ui_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$breadcrumb, \Drupal\Core\Routing\RouteMatchInterface $route_match, array $context) {
+//   // Add an item to the end of the breadcrumb.
+//   $breadcrumb = new \Drupal\Core\Breadcrumb\Breadcrumb();
+//   // $breadcrumb->addLink(\Drupal\Core\Link::fromTextAndUrl(t('Text'), new \Drupal\Core\Url('<none>')));
+//
+//   $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+//
+//   $pages = getPages();
+//   $node = \Drupal::entityTypeManager()->getStorage('node')->load($pages['get_informed']);
+//
+//   $node = $node->getTranslation($language);
+//
+//   // $url_object = Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $node->id]);
+//   // $breadcrumb->addLink(\Drupal\Core\Link::fromTextAndUrl($node->getTitle(), $url_object));
+//
+//   //   kint($context, $node->id);
+// }

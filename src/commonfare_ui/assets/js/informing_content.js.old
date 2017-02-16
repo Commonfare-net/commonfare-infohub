@@ -134,89 +134,26 @@ Drupal.behaviors.informing_content_list = {
   }
 };
 
-Drupal.behaviors.informing_link_cards = {
+Drupal.behaviors.informing_content_node = {
   attach: function (context, settings) {
     jQuery(function ($) {
 
-      if(isMobile()) return;
+      if(!isMobile()) return;
 
-      var block = $(".commonfare-homepage .card-content .card-item .wrapper, .path-taxonomy .card-content .card-item .wrapper");
+      var block = $("body.page-node-type-welfare-organization");
 
       if(!block.size()) return
       if(block.is(".processed-nn")) return
       block.addClass("processed-nn")
 
-      block.on('click', function() {
-        document.location = $(this).find(".button_how a").attr("href");
-      })
-
-    })
-  }
-};
-Drupal.behaviors.informing_node_next_prev = {
-  attach: function (context, settings) {
-    jQuery(function ($) {
-
-      if(isMobile()) return;
-
-      var block = $("#block-views-block-measure-list-by-term-block-1");
-
-      if(!block.size()) return
-      if(block.is(".processed-nn")) return
-      block.addClass("processed-nn")
-
-      var ilist = block.find('.item-list')
-      var alist = ilist.find('ul > li a');
-      var title = $('.region-page-title h1 > span').text()
-
-      var nextLink = null, prevLink = null;
-      var currentIndex = 0
-      var listLength = alist.size()
-
-      ilist.hide()
-
-      alist.each(function(i, el) {
-          console.warn(i, $(this).text());
-        if ($(this).text() === title) {
-          currentIndex = i
-        }
-      })
-
-      var n = $('.node-navigation')
-      var next = n.find('.next')
-      var prev = n.find('.prev')
-
-
-      console.warn(currentIndex, listLength);
-      if (currentIndex === 0) {
-        prev.hide()
+      var title = $(".field--name-field-tags .field__item a").text()
+      var term = $('.taxonomy-term');
+      if (term.size()) {
+        var tid = term.attr('id').split('-')[2]
+        var link = informing.getLink(tid);
+        title = $("<a href='"+ link +"'>"+ title +"</a>")
+        setTitle($, title)
       }
-      else {
-        var aprev = alist.eq(currentIndex-1)
-        prevLink = aprev.attr("href")
-        prev.find('.title').text( aprev.text() )
-      }
-
-      if (currentIndex === listLength-1) {
-        next.hide()
-      }
-      else {
-        var anext = alist.eq(currentIndex+1)
-        nextLink = anext.attr("href")
-        next.find('.title').text( anext.text() )
-      }
-
-      next.on('click', function() {
-        if(nextLink === null) return false
-        document.location = nextLink
-      })
-      prev.on('click', function() {
-        if(prevLink === null) return false
-        document.location = prevLink
-      })
-
-      block.find('.hidden').removeClass("hidden")
-
     })
   }
 };

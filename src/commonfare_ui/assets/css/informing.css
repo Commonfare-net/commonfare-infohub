@@ -1,4 +1,8 @@
 
+.pointer {
+  cursor: pointer;
+}
+
 /* LanguageSelection: */
 .language-select {
   font-family: Asap-Medium;
@@ -53,12 +57,35 @@ body h6
   font-weight: bold;
 }
 
-#page-title, #wrapper {
+
+
+.path-frontpage #page-title,
+.path-frontpage #wrapper
+{
   background: #FFFAF7;
+}
+
+.path-taxonomy #wrapper .row.layout
+{
+  border: 1px solid #EEE;
+  border-bottom: 0px none;
+  border-right: 0px none;
+  background: #FFFAF7;
+}
+
+.path-taxonomy #page-title
+.path-taxonomy #wrapper
+{
+  text-align: center;
+  background: white;
 }
 
 .medium {
     font-size: 14px;
+}
+.large,
+.large .fa {
+    font-size: 24px;
 }
 
 header.main-header {
@@ -91,36 +118,38 @@ header.main-header:after {
   padding: 40px 0 10px 0;
 }
 
+body .main-header,
 .commonfare-homepage #get-informed .main-header,
 .commonfare-homepage #participate .main-header
 {
   padding: 0;
 }
 
-.commonfare-homepage .menu-base-theme li
+body .main-header .menu-base-theme li
 {
   padding: 10px 0;
 }
-.commonfare-homepage .brand.logo img
+.brand.logo img
 {
   padding: 10px 0 0 0;
 }
-.commonfare-homepage .brand.logo
+.brand.logo
 {
   text-align: center
 }
 
+.menu-base-theme li.active,
 .commonfare-homepage #get-informed .menu-base-theme li:nth-child(2),
 .commonfare-homepage #participate .menu-base-theme li:nth-child(3)
 {
   background-color: #FFFFFF;
 }
+.menu-base-theme li.active a,
 .commonfare-homepage #get-informed .menu-base-theme li:nth-child(2) a,
 .commonfare-homepage #participate .menu-base-theme li:nth-child(3) a
 {
   color: #EC6C58;
 }
-
 
 .commonfare-homepage {
   background-color: #FFFAF7;
@@ -134,12 +163,19 @@ header.main-header:after {
   padding: 10px 0;
 }
 
-.commonfare-homepage .term-item .wrapper {
+.card-content .card-item .wrapper {
   margin: 5px;
   padding: 5px;
   box-shadow: 2px 2px 4px #BBB;
   border: 1px solid #CCC;
   background-color: #FFF;
+  min-height: 220px;
+  max-height: 220px;
+  cursor: pointer;
+}
+
+.commonfare-homepage .card-content .card-item .wrapper:hover {
+  box-shadow: 2px 2px 12px #AAA;
 }
 
 .commonfare-homepage .cards-list {
@@ -148,26 +184,48 @@ header.main-header:after {
   margin: 0.5em 0 4em 0;
 }
 
-.commonfare-homepage .block-views-blockwelfare-measure-sections-block-1 .views-field-name,
-.commonfare-homepage .block-views-blockwelfare-measure-sections-block-1 .views-field-description__value
+.card-content .views-field-name,
+.card-content .views-field-description__value
 {
   text-align: center;
 }
 
-.commonfare-homepage .block-views-blockwelfare-measure-sections-block-1 .btn
+.card-content .btn
 {
   font-weight: bold;
   font-size: 14px;
 }
 
-.commonfare-homepage .block-views-blockwelfare-measure-sections-block-1 .views-field-description__value
+.card-content .views-field-description__value
 {
-    min-height: 70px;
-    max-height: 80px
+    min-height: 80px;
+    max-height: 80px;
+    overflow-y: hidden;
 }
+
+.path-taxonomy .card-content .button_how {
+  padding-right: 2.6em;
+}
+.path-taxonomy .card-content .button_how .btn {
+  width: 47px;
+  padding: 16px;
+}
+.path-taxonomy .card-content .card-item .wrapper:hover {
+  background: #EC6C58;
+}
+.path-taxonomy .card-content .card-item .wrapper:hover .views-field-name h2,
+.path-taxonomy .card-content .card-item .wrapper:hover .views-field-description__value,
+.path-taxonomy .card-content .card-item .wrapper:hover .button_how a
+ {
+  color: white !important;
+}
+
 
 .text-white {
   color: white !important;
+}
+.text-red {
+  color: #EC6C58 !important;
 }
 .red {
   background-color: #EC6C58 !important;
