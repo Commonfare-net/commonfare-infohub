@@ -180,12 +180,10 @@ Drupal.behaviors.informing_home_scrolling = {
 
       $('.about-main-header').show()
 
-
       $("#about .button_how").on('click', function() {
         // document.location = document.location.toString().substr(0, document.location.toString().indexOf("#")) + "#get-informed"
         block.moveDown()
       })
-
 
       alist.on('click', function() {
 
@@ -198,6 +196,18 @@ Drupal.behaviors.informing_home_scrolling = {
 
         return false
       })
+
+
+      switch (document.location.hash) {
+        case "#about":
+          block.moveTo(1)
+        case "#get-informed":
+          block.moveTo(2)
+        case "#participate":
+          block.moveTo(3)
+          break;
+        default:
+      }
 
     })
   }

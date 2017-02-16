@@ -37,6 +37,14 @@
   line-height: 35px;
 }
 
+body.path-frontpage {
+  overflow: hidden !important;
+}
+
+body {
+  overflow: auto !important;
+}
+
 /*Hover for "category btn" - #E7472E;*/
 
 body {
@@ -56,14 +64,17 @@ body h6
   font-weight: bold;
 }
 
+#wrapper {
+  padding-bottom: 50px;
+}
 
-.toolbar-tray-open header.about-main-header,
-.toolbar-tray-open header.main-header
+.path-frontpage .toolbar-tray-open header.about-main-header,
+.path-frontpage .toolbar-tray-open header.main-header
 {
   top: 80px;
 }
-.toolbar-fixed header.about-main-header,
-.toolbar-fixed header.main-header
+.path-frontpage .toolbar-fixed header.about-main-header,
+.path-frontpage .toolbar-fixed header.main-header
 {
   top: 40px;
 }
@@ -75,7 +86,7 @@ header.about-main-header {
   z-index: 10;
 }
 
-header.main-header {
+.path-frontpage header.main-header {
   top: 0px;
   position: fixed;
   width: 100%;
@@ -99,7 +110,6 @@ header.main-header {
  {
   padding-top: 80px;
 }
-
 
 .path-taxonomy #wrapper .row.layout
 {
@@ -148,10 +158,6 @@ header.about-main-header nav
 
 .commonfare-homepage section .content_layout .node > h2 {
   display: none;
-}
-
-.commonfare-homepage article {
-  font-weight: bold;
 }
 
 .commonfare-homepage #about .node__content {
@@ -292,6 +298,38 @@ div.copyright {
 
 #block-selettorelingua-2 {
   display: none;
+}
+
+#participate #mc_embed_signup {
+  background-color: transparent;
+  width: 420px;
+  margin: 0 auto;
+}
+#participate #mc_embed_signup .button {
+  color: #FFFFFF;
+  background: #EC6C58;
+}
+#participate #mc_embed_signup input.email,
+#participate #mc_embed_signup input.button {
+  margin: 5px auto ;
+}
+#participate #mc_embed_signup input.email {
+  border-color: #EC6C58;
+  line-height: 32px;
+}
+
+.node--type-welfare-organization .field--name-field-short-description {
+  border-left: 2px solid #EC6C58;
+  padding-left: 0.5em;
+}
+
+.node--type-welfare-organization .field--name-field-short-description .field__label,
+.node--type-welfare-organization .field--name-field-content strong,
+.node--type-welfare-organization .field--name-field-content h3,
+.node--type-welfare-organization .field--name-field-content h4
+{
+  color: #EC6C58;
+  font-weight: bold;
 }
 
 /* Small devices (tablets, 768px and up) */
