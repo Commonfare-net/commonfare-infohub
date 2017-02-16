@@ -153,6 +153,43 @@ Drupal.behaviors.informing_link_cards = {
     })
   }
 };
+Drupal.behaviors.informing_fit_home = {
+  attach: function (context, settings) {
+    jQuery(function ($) {
+
+      // if(isMobile()) return;
+
+      var block = $(".commonfare-homepage");
+
+      if(!block.size()) return
+      if(block.is(".processed-xx")) return
+      block.addClass("processed-xx")
+
+
+      var about = $("#about"),
+          get_informed = $("#get-informed"),
+          participate = $("#participate"),
+          admin = $('#toolbar-administration'),
+          screens = [ about, get_informed, participate  ],
+          win = $(window)
+
+      var h = win.height()
+      if (admin.size()) {
+        h -= admin.height()
+      }
+
+      screens.forEach(function(screen) {
+        screen.height(h)
+      })
+
+      about.on('click', function() {
+        document.location = document.location.toString().substr(0, document.location.toString().indexOf("#")) + "#get-informed"
+      })
+
+
+    })
+  }
+};
 Drupal.behaviors.informing_node_next_prev = {
   attach: function (context, settings) {
     jQuery(function ($) {
@@ -162,8 +199,8 @@ Drupal.behaviors.informing_node_next_prev = {
       var block = $("#block-views-block-measure-list-by-term-block-1");
 
       if(!block.size()) return
-      if(block.is(".processed-nn")) return
-      block.addClass("processed-nn")
+      if(block.is(".processed-nnd")) return
+      block.addClass("processed-nnd")
 
       var ilist = block.find('.item-list')
       var alist = ilist.find('ul > li a');
@@ -187,7 +224,6 @@ Drupal.behaviors.informing_node_next_prev = {
       var prev = n.find('.prev')
 
 
-      console.warn(currentIndex, listLength);
       if (currentIndex === 0) {
         prev.hide()
       }

@@ -1,0 +1,5 @@
+services:
+  commonfare_ui.redirectmycontenttype:
+    class: Drupal\commonfare_ui\EventSubscriber\CommonfareRedirectSubscriber
+    tags:
+      - { name: event_subscriber }

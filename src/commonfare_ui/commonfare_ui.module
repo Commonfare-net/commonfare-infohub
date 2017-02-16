@@ -6,7 +6,7 @@ define("commonfare_pages", [
   "participate" => 26,
 ]);
 
-function render_page($nid) {
+function commonfare_ui_render_page($nid) {
   $entity_type = 'node';
   $view_mode = 'full';
   $node = \Drupal::entityTypeManager()->getStorage($entity_type)->load($nid);
@@ -15,7 +15,7 @@ function render_page($nid) {
   return $output;
 }
 
-function getPages() {
+function commonfare_ui_get_pages() {
   $pages = \Drupal::config('commonfare_ui.settings')->get('pages');
   if (!$pages) {
     $config = \Drupal::service('config.factory')->getEditable('commonfare_ui.settings');
@@ -29,9 +29,9 @@ function commonfare_ui_preprocess_page__front(array &$variables)
 {
 
   $variables['page']['learn_how'] = t("Learn How");
-  $pages = getPages();
+  $pages = commonfare_ui_get_pages();
   foreach ($pages as $label => $nid) {
-    $variables['page'][$label] = render_page($nid);
+    $variables['page'][$label] = commonfare_ui_render_page($nid);
   }
 
 }
@@ -44,7 +44,7 @@ function commonfare_ui_preprocess_page__front(array &$variables)
 //
 //   $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
 //
-//   $pages = getPages();
+//   $pages = commonfare_ui_get_pages();
 //   $node = \Drupal::entityTypeManager()->getStorage('node')->load($pages['get_informed']);
 //
 //   $node = $node->getTranslation($language);
