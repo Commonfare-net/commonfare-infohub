@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "16a4de003605ad94e20965eb0cb86955",
-    "content-hash": "387433763053ae07fff96cb191c7510e",
+    "hash": "faf24212dc53219e5ccbccd59946261b",
+    "content-hash": "7b0bc039f1d5bd4856980e4de0a40bfc",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -113,6 +113,52 @@
                 "stack"
             ],
             "time": "2016-08-01 12:05:04"
+        },
+        {
+            "name": "backupmigrate/core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/backupmigrate/backup_migrate_core.git",
+                "reference": "e1cb2937d57dc40e2548feec0669a7f7db516a3c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/backupmigrate/backup_migrate_core/zipball/e1cb2937d57dc40e2548feec0669a7f7db516a3c",
+                "reference": "e1cb2937d57dc40e2548feec0669a7f7db516a3c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/log": "dev-master"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "1.*",
+                "phpunit/dbunit": "~1.4",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BackupMigrate\\Core\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "BackupMigrate\\Core\\Tests\\": "tests"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Ronan Dowling"
+                }
+            ],
+            "description": "Backup and Migrate",
+            "support": {
+                "source": "https://github.com/backupmigrate/backup_migrate_core/tree/master",
+                "issues": "https://github.com/backupmigrate/backup_migrate_core/issues"
+            },
+            "time": "2016-12-31 21:18:38"
         },
         {
             "name": "commonfare/commonfare_ui",
@@ -1145,6 +1191,56 @@
             }
         },
         {
+            "name": "drupal/backup_migrate",
+            "version": "dev-4.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/backup_migrate",
+                "reference": "bb2cbf10e730f43ec68fab69a734cffa1390ba01"
+            },
+            "require": {
+                "backupmigrate/core": "dev-master",
+                "drupal/core": "~8.0",
+                "php": ">=5.4.0",
+                "psr/log": "dev-master"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-4.x": "4.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-4.0-alpha1+11-dev",
+                    "datestamp": "1483328943"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BackupMigrate\\Drupal\\": "src"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Ronan Dowling",
+                    "homepage": "https://www.drupal.org/user/19044"
+                },
+                {
+                    "name": "ronan",
+                    "homepage": "https://www.drupal.org/user/72815"
+                }
+            ],
+            "description": "Backup and Migrate Drupal Module",
+            "homepage": "https://www.drupal.org/project/backup_migrate",
+            "support": {
+                "source": "http://cgit.drupalcode.org/backup_migrate"
+            },
+            "time": "2017-01-02 03:44:53"
+        },
+        {
             "name": "drupal/console",
             "version": "1.0.0-rc14",
             "source": {
@@ -1618,7 +1714,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/devel",
-                "reference": "8a6e8b068d914a39d412262079f028948b53c215"
+                "reference": "70f62fd0773082a1a4305c6a7c2bccc649bc98a2"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -1632,8 +1728,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta1+23-dev",
-                    "datestamp": "1483892342"
+                    "version": "8.x-1.0-beta1+24-dev",
+                    "datestamp": "1483990143"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -1695,7 +1791,7 @@
                 "issues": "http://drupal.org/project/devel",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
             },
-            "time": "2017-01-08 16:17:41"
+            "time": "2017-01-09 19:24:05"
         },
         {
             "name": "drupal/drupal8_zymphonies_theme",
@@ -1796,7 +1892,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/flags",
-                "reference": "10ddf5c3999582d7896af2dcb46dcde93ca1ae84"
+                "reference": "62a7caad29083a82c302ca535e1e96f4bdff0435"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -1812,7 +1908,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.x-dev",
-                    "datestamp": "1476572339"
+                    "datestamp": "1483968242"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -1838,7 +1934,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/flags"
             },
-            "time": "2016-10-15 22:54:55"
+            "time": "2017-01-09 13:20:33"
         },
         {
             "name": "drupal/menu_trail_by_path",
@@ -2990,7 +3086,7 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
@@ -4848,16 +4944,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.30.0",
+            "version": "v1.31.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "c6ff71094fde15d12398eaba029434b013dc5e59"
+                "reference": "ddc9e3e20ee9c0b6908f401ac8353635b750eca7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c6ff71094fde15d12398eaba029434b013dc5e59",
-                "reference": "c6ff71094fde15d12398eaba029434b013dc5e59",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ddc9e3e20ee9c0b6908f401ac8353635b750eca7",
+                "reference": "ddc9e3e20ee9c0b6908f401ac8353635b750eca7",
                 "shasum": ""
             },
             "require": {
@@ -4865,12 +4961,12 @@
             },
             "require-dev": {
                 "symfony/debug": "~2.7",
-                "symfony/phpunit-bridge": "~3.2@dev"
+                "symfony/phpunit-bridge": "~3.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.30-dev"
+                    "dev-master": "1.31-dev"
                 }
             },
             "autoload": {
@@ -4905,7 +5001,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-12-23 11:06:22"
+            "time": "2017-01-11 19:36:15"
         },
         {
             "name": "victorjonsson/markdowndocs",
@@ -6590,7 +6686,8 @@
         "drupal/token": 10,
         "drupal/pathauto": 10,
         "drupal/flags": 20,
-        "commonfare/commonfare_ui": 20
+        "commonfare/commonfare_ui": 20,
+        "drupal/backup_migrate": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
