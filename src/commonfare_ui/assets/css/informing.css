@@ -39,8 +39,7 @@
 
 /*Hover for "category btn" - #E7472E;*/
 
-
-body, html {
+body {
   background: #FFFAF7;
   font-family: 'Lora', serif;
 }
@@ -58,12 +57,49 @@ body h6
 }
 
 
+.toolbar-tray-open header.about-main-header,
+.toolbar-tray-open header.main-header
+{
+  top: 80px;
+}
+.toolbar-fixed header.about-main-header,
+.toolbar-fixed header.main-header
+{
+  top: 40px;
+}
+
+header.about-main-header {
+  top: 0px;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+}
+
+header.main-header {
+  top: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+.path-frontpage #participate #wrapper {
+  height: 100%;
+  padding: 5em 0 0 0;
+}
 
 .path-frontpage #page-title,
 .path-frontpage #wrapper
 {
   background: #FFFAF7;
 }
+
+.path-frontpage #about,
+.path-frontpage #get-informed,
+.path-frontpage #participate
+ {
+  padding-top: 80px;
+}
+
 
 .path-taxonomy #wrapper .row.layout
 {
@@ -90,6 +126,7 @@ body h6
 
 header.main-header {
   background-image: none;
+  background-color: #EC6C58 !important;
   font-size: 36px;
   color: #FFFAF7;
   font-size: 18px;
@@ -98,8 +135,11 @@ header.main-header {
   margin-bottom: 0;
 }
 
-header.main-header:after {
-  background-color: #EC6C58
+header.main-header:after,
+header.main-header nav,
+header.about-main-header nav
+ {
+  background-color: #EC6C58 !important;
 }
 
 .footer-menu {
@@ -115,7 +155,7 @@ header.main-header:after {
 }
 
 .commonfare-homepage #about .node__content {
-  padding: 40px 0 10px 0;
+  padding: 6em 0 10px 0;
 }
 
 body .main-header,
@@ -138,15 +178,18 @@ body .main-header .menu-base-theme li
   text-align: center
 }
 
+
 .menu-base-theme li.active,
 .commonfare-homepage #get-informed .menu-base-theme li:nth-child(2),
-.commonfare-homepage #participate .menu-base-theme li:nth-child(3)
+.commonfare-homepage #participate .menu-base-theme li:nth-child(3),
+.path-taxonomy .menu-base-theme li:nth-child(2)
 {
   background-color: #FFFFFF;
 }
 .menu-base-theme li.active a,
 .commonfare-homepage #get-informed .menu-base-theme li:nth-child(2) a,
-.commonfare-homepage #participate .menu-base-theme li:nth-child(3) a
+.commonfare-homepage #participate .menu-base-theme li:nth-child(3) a,
+.path-taxonomy .menu-base-theme li:nth-child(2) a
 {
   color: #EC6C58;
 }
@@ -179,6 +222,7 @@ body .main-header .menu-base-theme li
 }
 
 .commonfare-homepage .cards-list {
+  height: 100%;
   border-top: 1px solid #EEE;
   background-color: #FFFAF7;
   margin: 0.5em 0 4em 0;
@@ -221,6 +265,10 @@ body .main-header .menu-base-theme li
 }
 
 
+.path-taxonomy .card-content  .views-exposed-form {
+  display: none;
+}
+
 .text-white {
   color: white !important;
 }
@@ -237,6 +285,13 @@ div.copyright {
   font-weight: bold;
   color: #FFFFFF;
   background: #EC6C58;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+#block-selettorelingua-2 {
+  display: none;
 }
 
 /* Small devices (tablets, 768px and up) */

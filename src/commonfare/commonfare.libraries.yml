@@ -12,6 +12,16 @@ hammer:
   dependencies:
     - core/jquery
 
+scroll:
+  version: 1.x
+  js:
+    js/jquery.onepage-scroll.min.js: {}
+  css:
+    theme:
+      js/onepage-scroll.css: {}
+  dependencies:
+    - core/jquery
+
 bootstrap:
   version: 1.x
   css:

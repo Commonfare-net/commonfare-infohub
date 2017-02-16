@@ -372,11 +372,23 @@
       <!-- End Copyright -->
 
       <!-- Credit link -->
-      {% if show_credit_link %}
+
         <div class="col-sm-6 col-md-6">
-          <p class="credit-link">Designed by <a href="http://www.zymphonies.in" target="_blank">Zymphonies</a></p>
+          <div class="language-selector text-right">
+            <div class="btn-group dropup">
+              <button type="button" class="btn btn-default dropdown-toggle red text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Language <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#it" data-lang="it">IT - Italiano</a></li>
+                <li><a href="#hr" data-lang="hr">HR - Hrvatski</a></li>
+                <li><a href="#nl" data-lang="nl">NL - Nederlands</a></li>
+                <li><a href="#en" data-lang="en">EN - English</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-      {% endif %}
+
       <!-- End Credit link -->
 
     </div>

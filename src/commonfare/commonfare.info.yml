@@ -8,6 +8,7 @@ package: core
 libraries:
   - commonfare/bootstrap
   - commonfare/hammer
+  - commonfare/scroll
   - commonfare/gfonts
   - commonfare/global-components
   - commonfare_ui/informing
