@@ -17,12 +17,20 @@
         </div>
 
         <!-- Navigation -->
-        <div class="col-md-9">
+        <div class="col-md-9 col-xs-9 primary-menu-container">
           {% if page.primary_menu %}
             {{ page.primary_menu }}
           {% endif %}
         </div>
         <!--End Navigation -->
+
+        <!-- Mobile only sandwich -->
+        <div class="col-md-3 col-xs-3 mobile-menu-container text-right">
+          <div class="mobile-menu large text-white">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </div>
+        </div>
+        <!--End Mobile only sandwich -->
 
       </div>
     </div>
@@ -39,6 +47,27 @@
     </div>
   {% endif %}
   <!-- End Banner -->
+
+  <!-- Mobile menu panel  -->
+  <div class="mobile-menu-item ">
+    <div class="close-button text-right">
+      <i class="text-red fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="language-selector text-center medium">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Language <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#it" data-lang="it">IT - Italiano</a></li>
+          <li><a href="#hr" data-lang="hr">HR - Hrvatski</a></li>
+          <li><a href="#nl" data-lang="nl">NL - Nederlands</a></li>
+          <li><a href="#en" data-lang="en">EN - English</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End Mobile menu panel  -->
 
 </header>
 <!--End Header & Navbar -->
@@ -60,7 +89,7 @@
         </div>
 
         <!-- Navigation -->
-        <div class="col-md-4 medium">
+        <div class="col-md-4 medium language-selector-container">
 
           <!--  Language selector -->
           <div class="language-selector text-right">
@@ -357,7 +386,7 @@
         <div class="row">
 
           <!-- Copyright -->
-          <div class="col-sm-6 col-md-6">
+          <div class="col-sm-6 col-md-6 copyright-text">
             {% if copyright_text %}
               <p>{{copyright_text}}</p>
             {% endif %}

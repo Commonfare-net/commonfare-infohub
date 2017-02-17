@@ -1,4 +1,5 @@
-body, html {
+body.with-onepager
+{
   margin: 0;
   overflow: hidden;
   -webkit-transition: opacity 400ms;
@@ -6,7 +7,9 @@ body, html {
   transition: opacity 400ms;
 }
 
-body, .onepage-wrapper, html {
+body.with-onepager,
+.onepage-wrapper
+{
   display: block;
   position: static;
   padding: 0;
@@ -46,7 +49,7 @@ body, .onepage-wrapper, html {
   width: 4px;
   height: 4px;
   display: block;
-  
+
 }
 .onepage-pagination li a:before{
   content: '';
