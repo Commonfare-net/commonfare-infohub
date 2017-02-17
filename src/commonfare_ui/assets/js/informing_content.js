@@ -194,23 +194,44 @@ Drupal.behaviors.informing_country_form = {
       if(block.is(".processed-country-form")) return
       block.addClass("processed-country-form")
 
-      block.hide()
-
       var countrySelector = $('.country-selector')
 
       var lbl = countrySelector.find('.btn .label')
-      lbl.text( Drupal.t(lbl.text()) )
+      var opts = block.find('select option')
+
+      var setLanguage = null
+      var sel = opts.filter(':selected')
+      if (sel.size()) {
+        var txt = sel.text()
+        if(sel.val() === 'All') {
+          var uilang = opts.filter('[value="'+ $('html').attr('lang') +'"]')
+          txt = uilang.text()
+          setLanguage = uilang.val()
+        }
+        countrySelector.find('.btn .curr').text(txt)
+      }
+
+      opts.each(function() {
+        var match = countrySelector.find('.dropdown-menu li a[href="#'+ $(this).attr('value') +'"]')
+        if(match.size())
+          match.text( $(this).text() )
+      })
 
       countrySelector.find('.dropdown-menu li a')
       .on("click", function() {
+
         var lang = $(this).attr("href").substr(1)
         block.find('select').val(lang)
         block.find('input[type="submit"]').trigger('click')
-      })
-      .each(function(i, el) {
-        $(this).text( Drupal.t($(this).text()) )
+
+        return false;
       })
 
+      if (setLanguage) {
+        countrySelector.find('.dropdown-menu li a[href="#'+ setLanguage +'"]').trigger('click')
+      }
+
+      block.hide()
       countrySelector.removeClass('hidden')
 
     })

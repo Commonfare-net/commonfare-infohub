@@ -273,6 +273,16 @@ div.copyright {
   background-color: transparent;
 }
 
+.btn-group div.btn.btn-default .label,
+.btn-group div.btn.btn-default .curr
+{
+    color: black !important;
+}
+.btn-group.open div.btn.btn-default .curr
+{
+    color: #BBB;
+}
+
 /* Mobile smaller than 768px */
 @media (max-width: 768px) {
 
@@ -524,11 +534,6 @@ div.copyright {
   .path-taxonomy .card-content .card-item .wrapper:hover .button_how a
    {
     color: white !important;
-  }
-
-
-  .path-taxonomy .card-content  .views-exposed-form {
-    display: none;
   }
 
 }
