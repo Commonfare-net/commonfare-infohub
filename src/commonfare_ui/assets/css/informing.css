@@ -185,6 +185,18 @@ header.about-main-header nav
   margin: 0 auto;
 }
 
+.node-navigation .prev:hover .text-red,
+.node-navigation .next:hover .text-red
+{
+  color: #E7472E !important;
+}
+
+.node-navigation .prev:hover .title,
+.node-navigation .next:hover .title
+{
+  color: black !important;
+}
+
 body .main-header,
 .commonfare-homepage #get-informed .main-header,
 .commonfare-homepage #participate .main-header
@@ -295,7 +307,6 @@ div.copyright {
 
 .page-node-type-welfare-organization .block-views-blocktaxonomy-term-item-block-2 {
   padding-bottom: 1em;
-  border-bottom: 1px solid #EEE;
 }
 
 .btn-group div.btn.btn-default,
