@@ -412,7 +412,7 @@ div.copyright {
   }
   .main-header .region-primary-menu .menu-base-theme li a {
     border: 0px none;
-    padding: 10px 15px;
+    padding: 10px 5px;
     background: transparent;
     color: white;
     text-align: center;
@@ -507,10 +507,10 @@ div.copyright {
 
   .commonfare-homepage .card-content .card-item .wrapper {
     background-color: #EC6C58;
-    min-height: 120px;
-    max-height: 120px;
+    min-height: 60px;
+    max-height: 60px;
     cursor: pointer;
-    padding: 0.5em 1em;
+    padding: 0.25em 1em;
   }
   .commonfare-homepage .card-content {
     padding: 0 1em;
@@ -518,12 +518,15 @@ div.copyright {
   .commonfare-homepage .card-content .card-item {
     padding: 0.4em;
   }
+
+  .commonfare-homepage .card-content .card-item .wrapper h4 {
+    font-size: 90%;
+  }
   .commonfare-homepage .card-content .card-item .wrapper h4,
   .commonfare-homepage .card-content .card-item .wrapper h4 a,
   .commonfare-homepage .card-content .card-item .wrapper h4 a:hover,
   .commonfare-homepage .card-content .card-item .wrapper h4 a:active
   {
-    margin-top: 40%;
     color: #FFF;
     font-weight: bold;
     text-align: center;
