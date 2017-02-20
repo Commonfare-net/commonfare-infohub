@@ -42,7 +42,8 @@
         "drupal/admin_toolbar": "^1.18",
         "drupal/menu_trail_by_path": "^1.1",
         "drupal/backup_migrate": "4.x-dev",
-        "drupal/mailchimp": "^1.2"
+        "drupal/mailchimp": "^1.2",
+        "drupal/ip_language_negotiation": "^1.0"
     },
     "require-dev": {
         "behat/mink": "~1.7",
