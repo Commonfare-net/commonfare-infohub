@@ -360,7 +360,18 @@ div.copyright {
   html, body {
     width: 100%;
     height: : 100%;
-    overflow: hidden;
+  }
+
+  .path-frontpage #participate #wrapper {
+    padding: 0em 0 0 0;
+  }
+  .path-frontpage #participate #wrapper p {
+    margin: 0em;
+  }
+
+
+  .copyright {
+    display: none;
   }
 
   body h2 {
