@@ -1,4 +1,22 @@
 
+var getSupportedLanguages = function() {
+  var langsBlock = jQuery("#block-selettorelingua-2")
+  return langsBlock.find("li").map(function () {
+    return jQuery(this).attr('class').replace("is-active", '').replace(" ", '')
+  })
+}
+
+var getSelectedLanguage = function() {
+  if(localStorage.language) return localStorage.language
+  var langsBlock = jQuery("#block-selettorelingua-2")
+  localStorage.language  = langsBlock.find("li.is-active").eq(0).attr('class').replace('is-active', '').replace(' ', '')
+  return localStorage.language
+}
+
+var isCurrentLanguage = function(lang) {
+  return lang === getSelectedLanguage()
+}
+
 Drupal.behaviors.informing_desktyop_small_h = {
   attach: function (context, settings) {
     jQuery(function ($) {
@@ -175,21 +193,25 @@ Drupal.behaviors.informing_language_selector = {
       if(block.is(".processed-language-selector")) return
       block.addClass("processed-language-selector")
 
-      var langsList = $("#block-selettorelingua-2 li")
+      var langsBlock = $("#block-selettorelingua-2")
+      var langsList = langsBlock.find("li")
 
       block.find('.dropdown-menu li a').on('click', function() {
-
         var lang = $(this).data('lang')
-
         langsList.each(function() {
-          if ($(this).attr('hreflang') === lang) {
+          if ($(this).hasClass(lang)) {
             localStorage.language = lang
             document.location = $(this).find("a").attr("href")
           }
         })
-
         return false
       })
+
+
+      var isCurrent = isCurrentLanguage(localStorage.language)
+      if (localStorage.language && !isCurrent) {
+        block.find('.dropdown-menu li a[href="#'+ localStorage.language +'"]').trigger('click')
+      }
 
     })
   }
@@ -227,33 +249,51 @@ Drupal.behaviors.informing_country_form = {
       var lbl = countrySelector.find('.btn .label')
       var opts = block.find('select option')
 
+      var label = countrySelector.find('.btn .label')
+      var curr = countrySelector.find('.btn .curr')
+
+      var lang = getSelectedLanguage()
+
+      localStorage.originalMsg = localStorage.originalMsg || label.text()
       var setLanguage = null
       var sel = opts.filter(':selected')
       if (sel.size()) {
+
         var txt = sel.text()
         if(sel.val() === 'All') {
-          var uilang = opts.filter('[value="'+ $('html').attr('lang') +'"]')
-          txt = uilang.text()
-          setLanguage = uilang.val()
+
+          if(lang && lang !== 'en') {
+            setLanguage = lang
+          } else {
+            label.text(Drupal.t("Please select the country of your interest"))
+            block.parent().find('.card-item').remove()
+          }
+
         }
-        countrySelector.find('.btn .curr').text(txt)
+        else {
+          label.text(Drupal.t(localStorage.originalMsg))
+          curr.text(sel.text())
+          // console.warn(label.text(), curr.text());
+        }
+
       }
 
       opts.each(function() {
         var match = countrySelector.find('.dropdown-menu li a[href="#'+ $(this).attr('value') +'"]')
-        if(match.size())
+        if(match.size()) {
           match.text( $(this).text() )
+        }
       })
 
       countrySelector.find('.dropdown-menu li a')
-      .on("click", function() {
+        .on("click", function() {
 
-        var lang = $(this).attr("href").substr(1)
-        block.find('select').val(lang)
-        block.find('input[type="submit"]').trigger('click')
+          var lang = $(this).attr("href").substr(1)
+          block.find('select').val(lang)
+          block.find('input[type="submit"]').trigger('click')
 
-        return false;
-      })
+          return false;
+        })
 
       if (setLanguage) {
         countrySelector.find('.dropdown-menu li a[href="#'+ setLanguage +'"]').trigger('click')
@@ -286,7 +326,6 @@ Drupal.behaviors.informing_node_next_prev = {
       ilist.hide()
 
       alist.each(function(i, el) {
-          console.warn(i, $(this).text());
         if ($(this).text() === title) {
           currentIndex = i
         }

@@ -59,6 +59,22 @@ body h1, body h2, body h3, body h4, body h5, body h6
   font-weight: bold;
 }
 
+body h2 {
+  font-size: 2.4em;
+}
+
+body h2 {
+  font-size: 2.2em;
+}
+
+body h3 {
+  font-size: 1.8em;
+}
+
+body h4 {
+  font-size: 1.4em;
+}
+
 #wrapper {
   padding-bottom: 1em;
 }
@@ -115,7 +131,6 @@ header.about-main-header {
 
 .path-taxonomy #wrapper .row.layout
 {
-  border: 1px solid #EEE;
   border-bottom: 0px none;
   border-right: 0px none;
   background: #FFFAF7;
@@ -162,8 +177,10 @@ header.about-main-header nav
   display: none;
 }
 
-.commonfare-homepage #about .node__content {
-  padding: 6em 0 10px 0;
+.commonfare-homepage #about .node__content,
+.commonfare-homepage #participate .node__content
+{
+  padding: 3em 0 10px 0;
   max-width: 620px;
   margin: 0 auto;
 }
@@ -216,10 +233,14 @@ div.copyright {
   font-weight: bold;
   color: #FFFFFF;
   background: #EC6C58;
+}
+
+.path-frontpage dvi.copyright {
   position: absolute;
   bottom: 0px;
   width: 100%;
 }
+
 
 #block-selettorelingua-2 {
   display: none;
@@ -508,12 +529,12 @@ div.copyright {
 
   .card-content .card-item .wrapper {
     margin: 5px;
-    padding: 5px 15px;
+    padding: 5px 20px;
     box-shadow: 2px 2px 4px #BBB;
     border: 1px solid #CCC;
     background-color: #FFF;
-    min-height: 220px;
-    max-height: 220px;
+    min-height: 240px;
+    max-height: 240px;
     cursor: pointer;
   }
 
@@ -543,10 +564,14 @@ div.copyright {
     font-size: 14px;
   }
 
+  .card-content .card-item .wrapper .views-field-name h4 {
+    font-size: 1.2em;
+  }
+
   .card-content .views-field-description__value
   {
-      min-height: 80px;
-      max-height: 80px;
+      min-height: 120px;
+      max-height: 120px;
       overflow-y: hidden;
   }
 
@@ -561,7 +586,9 @@ div.copyright {
   .path-taxonomy .card-content .card-item .wrapper:hover {
     background: #EC6C58;
   }
+
   .path-taxonomy .card-content .card-item .wrapper:hover .views-field-name h2,
+  .path-taxonomy .card-content .card-item .wrapper:hover .views-field-name h4,
   .path-taxonomy .card-content .card-item .wrapper:hover .views-field-description__value,
   .path-taxonomy .card-content .card-item .wrapper:hover .button_how a
    {
