@@ -43,14 +43,14 @@ Drupal.behaviors.informing_mobile_accordion = {
       if(block.is(".processed-mobile-menu")) return
       block.addClass("processed-mobile-menu")
 
-      block.find('h2').on("click", function () {
+      block.find('h4').on("click", function () {
 
         if ($(this).parent().next().is(':visible')) {
-          document.location  = block.find('h2').parent().next().next().find('a').attr('href')
+          document.location  = block.find('h4').parent().next().next().find('a').attr('href')
         }
 
-        block.find('h2').parent().next().hide()
-        block.find('h2').parent().next().next().hide()
+        block.find('h4').parent().next().hide()
+        block.find('h4').parent().next().next().hide()
 
         $(this).parent().next().show()
         $(this).parent().next().next().show()
@@ -146,9 +146,12 @@ Drupal.behaviors.informing_home_scrolling = {
       });
 
       $('body').height($(window).height())
+      // $('body').width($(window).width())
+
       $('body').addClass('with-onepager');
 
-      $('.about-main-header').show()
+      var amheader = $('.about-main-header')
+      amheader.show()
       $('.main-header').hide()
 
       $("#about .button_how").on('click', function() {

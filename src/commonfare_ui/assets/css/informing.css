@@ -7,6 +7,11 @@
   background-color: #E7472E !important;
 }
 
+.about-main-header .btn-group.open button {
+  box-shadow: none;
+}
+
+
 
 .pointer {
   cursor: pointer;
@@ -260,7 +265,7 @@ div.copyright {
 
 #participate #mc_embed_signup {
   background-color: transparent;
-  width: 420px;
+  width: 100%;
   margin: 0 auto;
 }
 #participate #mc_embed_signup .button {
@@ -352,6 +357,22 @@ div.copyright {
 /* Mobile smaller than 768px */
 @media (max-width: 768px) {
 
+  html, body {
+    width: 100%;
+    height: : 100%;
+    overflow: hidden;
+  }
+
+  body h2 {
+    font-size: 1.8em;
+  }
+  body h3 {
+    font-size: 1.4em;
+  }
+  body h4 {
+    font-size: 1.2em;
+  }
+
   body header.main-header,
   body header.main-header nav {
   }
@@ -365,7 +386,7 @@ div.copyright {
     display: block;
   }
   .main-header .mobile-menu-container .mobile-menu {
-    padding: 10px;
+    padding: 10px 0px;
   }
   .main-header .mobile-menu-container .mobile-menu.large .fa {
     font-size: 42px;
@@ -391,10 +412,11 @@ div.copyright {
   }
   .main-header .region-primary-menu .menu-base-theme li a {
     border: 0px none;
-    padding: 10px 30px;
+    padding: 10px 15px;
     background: transparent;
     color: white;
     text-align: center;
+    font-size: 95%;
   }
   .main-header .region-primary-menu .menu-base-theme li.active,
   .path-taxonomy .menu-base-theme li:nth-child(2),
@@ -430,6 +452,33 @@ div.copyright {
       padding-top: 64px;
   }
 
+  .path-frontpage #get-informed #wrapper .node__content,
+  .path-frontpage #participate #wrapper .node__content
+  {
+    font-size: 70%;
+  }
+
+  .path-frontpage #participate #wrapper .node__content
+  {
+    padding: 1em;
+  }
+  .path-frontpage #participate #wrapper .node__content p
+  {
+    padding: 0px 0px 5px 0px;
+  }
+
+  .path-taxonomy .card-content .card-item .wrapper:hover .views-field-name a,
+  .path-taxonomy .card-content .card-item:hover .views-field-name a:hover
+  {
+    color: #EC6C58;
+  }
+
+  .path-taxonomy .card-content .card-item .button_how
+  {
+    padding-right: 20px;
+  }
+
+
   .copyright .language-selector {
     display: none;
   }
@@ -440,7 +489,7 @@ div.copyright {
   }
 
   /*.about-main-header .navbar-header button*/
-  .main-header .navbar-header button {
+  .main-header .navbar-header {
     display: none;
   }
 
@@ -448,7 +497,7 @@ div.copyright {
     background: #fffaf7;
     width: 100%;
     position: absolute !important;
-    padding: 0 20px 0 0;
+    padding: 0 15px 0 0;
   }
 
   .col-md-4.language-selector-container button.btn {
@@ -458,8 +507,8 @@ div.copyright {
 
   .commonfare-homepage .card-content .card-item .wrapper {
     background-color: #EC6C58;
-    min-height: 180px;
-    max-height: 180px;
+    min-height: 120px;
+    max-height: 120px;
     cursor: pointer;
     padding: 0.5em 1em;
   }
@@ -469,12 +518,17 @@ div.copyright {
   .commonfare-homepage .card-content .card-item {
     padding: 0.4em;
   }
-  .commonfare-homepage .card-content .card-item .wrapper h2 {
-    margin-top: 38%;
+  .commonfare-homepage .card-content .card-item .wrapper h4,
+  .commonfare-homepage .card-content .card-item .wrapper h4 a,
+  .commonfare-homepage .card-content .card-item .wrapper h4 a:hover,
+  .commonfare-homepage .card-content .card-item .wrapper h4 a:active
+  {
+    margin-top: 40%;
     color: #FFF;
     font-weight: bold;
     text-align: center;
   }
+
   .commonfare-homepage .card-content .card-item .button_how,
   .commonfare-homepage .card-content .card-item .views-field-description__value
   {
@@ -531,6 +585,20 @@ div.copyright {
   .path-taxonomy .card-content .card-item .views-field-name .fa-caret-right {
     display: inline;
   }
+
+  .about-main-header {
+    min-height: 90px;
+  }
+
+  .about-main-header .btn-group.open .dropdown-menu {
+    margin-left: -50px;
+  }
+
+  .about-main-header .brand.logo img {
+    max-width: 60%;
+  }
+
+
 
 
 }
