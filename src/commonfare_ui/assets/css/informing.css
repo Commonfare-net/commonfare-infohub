@@ -335,8 +335,15 @@ div.copyright {
   color: #EC6C58;
 }
 
-.card-content .card-item .wrapper:hover .views-field-name a,
-.card-content .card-item:hover .views-field-name a:hover
+
+.path-frontpage .card-content .card-item .wrapper:hover .views-field-name a,
+.path-frontpage .card-content .card-item:hover .views-field-name a:hover
+{
+  color: #EC6C58;
+}
+
+.path-taxonomy .card-content .card-item .wrapper:hover .views-field-name a,
+.path-taxonomy .card-content .card-item:hover .views-field-name a:hover
 {
   color: white;
 }
