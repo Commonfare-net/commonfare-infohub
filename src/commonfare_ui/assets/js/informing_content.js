@@ -228,7 +228,7 @@ Drupal.behaviors.informing_link_cards = {
       block.addClass("processed-nn")
 
       block.on('click', function() {
-        document.location = $(this).find(".button_how a").attr("href");
+        document.location = $(this).find(".views-field-name a").attr("href");
       })
 
     })

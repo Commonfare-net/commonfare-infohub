@@ -328,6 +328,20 @@ div.copyright {
     color: #BBB;
 }
 
+.card-content .card-item .views-field-name a,
+.card-content .card-item .views-field-name a:hover
+{
+  text-decoration: none;
+  color: #EC6C58;
+}
+
+.card-content .card-item .wrapper:hover .views-field-name a,
+.card-content .card-item:hover .views-field-name a:hover
+{
+  color: white;
+}
+
+
 /* Mobile smaller than 768px */
 @media (max-width: 768px) {
 
@@ -567,6 +581,7 @@ div.copyright {
   .card-content .views-field-description__value
   {
     text-align: center;
+    min-height: 48px;
   }
 
   .card-content .btn
@@ -587,7 +602,7 @@ div.copyright {
   }
 
   .path-taxonomy .card-content .button_how {
-    padding-right: 2.6em;
+    padding-right: 20px;
   }
   .path-taxonomy .card-content .button_how .btn {
     width: 47px;
