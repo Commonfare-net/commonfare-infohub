@@ -588,6 +588,10 @@ div.copyright {
   .card-content .views-field-description__value
   {
     text-align: center;
+  }
+
+  .card-content .views-field-name
+  {
     min-height: 48px;
   }
 
