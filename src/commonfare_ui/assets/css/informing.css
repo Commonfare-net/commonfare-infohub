@@ -1,4 +1,13 @@
 
+.onepage-pagination {
+  display: none;
+}
+
+.button_how .btn:hover {
+  background-color: #E7472E !important;
+}
+
+
 .pointer {
   cursor: pointer;
 }
@@ -10,12 +19,11 @@
   color: #FFFFFF;
 }
 
-/* Con Commonfare indic...: */
-.body1 {
-  font-family: Asap-Regular;
-  font-size: 20px;
+body.commonfare {
+  font-family: Asap;
+  font-size: 18px;
   color: #472D33;
-  line-height: 30px;
+  line-height: 24px;
 }
 
 
@@ -156,6 +164,8 @@ header.about-main-header nav
 
 .commonfare-homepage #about .node__content {
   padding: 6em 0 10px 0;
+  max-width: 620px;
+  margin: 0 auto;
 }
 
 body .main-header,
@@ -223,6 +233,9 @@ div.copyright {
 #participate #mc_embed_signup .button {
   color: #FFFFFF;
   background: #EC6C58;
+}
+#participate #mc_embed_signup .button:hover {
+  background: #E7472E;
 }
 #participate #mc_embed_signup input.email,
 #participate #mc_embed_signup input.button {
@@ -341,6 +354,21 @@ div.copyright {
   .page-node-type-welfare-organization .menu-base-theme li:nth-child(2) a
   {
       color: #EC6C58;
+  }
+
+  .path-frontpage #get-informed.small-height #wrapper .content_layout {
+    font-size: 95%;
+    line-height: 90%;
+  }
+  .path-frontpage #get-informed.small-height .card-content .views-field-description__value {
+    font-size: 90%;
+    line-height: 140%;
+    max-height: 60px;
+    min-height: 60px;
+  }
+  .path-frontpage #get-informed.small-height .card-content .card-item .wrapper {
+    min-height: 200px;
+    max-height: 200px;
   }
 
   .path-frontpage #about,
@@ -480,7 +508,7 @@ div.copyright {
 
   .card-content .card-item .wrapper {
     margin: 5px;
-    padding: 5px;
+    padding: 5px 15px;
     box-shadow: 2px 2px 4px #BBB;
     border: 1px solid #CCC;
     background-color: #FFF;
@@ -493,9 +521,12 @@ div.copyright {
     box-shadow: 2px 2px 12px #AAA;
   }
 
+  .commonfare-homepage .cards-list h2 {
+    color: black;
+  }
+
   .commonfare-homepage .cards-list {
     height: 100%;
-    border-top: 1px solid #EEE;
     background-color: #FFFAF7;
     margin: 0.5em 0 4em 0;
   }
@@ -526,6 +557,7 @@ div.copyright {
     width: 47px;
     padding: 16px;
   }
+
   .path-taxonomy .card-content .card-item .wrapper:hover {
     background: #EC6C58;
   }
@@ -537,6 +569,7 @@ div.copyright {
   }
 
 }
+
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {

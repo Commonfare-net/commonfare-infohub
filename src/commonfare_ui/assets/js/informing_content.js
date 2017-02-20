@@ -1,4 +1,21 @@
 
+Drupal.behaviors.informing_desktyop_small_h = {
+  attach: function (context, settings) {
+    jQuery(function ($) {
+
+      if(isMobile()) return
+
+      var block = $("#get-informed");
+
+      if($(window).height() >= 820)
+        block.removeClass('small-height')
+      else
+        block.addClass("small-height")
+
+    })
+  }
+}
+
 Drupal.behaviors.informing_mobile_accordion = {
   attach: function (context, settings) {
     jQuery(function ($) {
@@ -62,6 +79,7 @@ Drupal.behaviors.informing_home_scrolling = {
       var mm = $('.mobile-menu-item')
 
       alist.eq(isMobile() ? 0 : 1).parent().addClass("active")
+      $('.copyright').hide()
 
       block.onepage_scroll({
          sectionContainer: "section",     // sectionContainer accepts any kind of selector in case you don't want to use section
@@ -76,18 +94,27 @@ Drupal.behaviors.informing_home_scrolling = {
              mm.hide()
           }
 
-           var idx = 1
-           if (index !== idx) {
+           if (index !== 1) {
              $('.about-main-header').fadeOut()
              $('.main-header').fadeIn()
            }
+
+           if (index !== 3) {
+             $('.copyright').fadeOut()
+           }
+
          },  // This option accepts a callback function. The function will be called before the page moves.
          afterMove: function(index) {
-           var idx = 1
-           if (index === idx) {
+
+           if (index === 1) {
              $('.about-main-header').fadeIn()
              $('.main-header').fadeOut()
            }
+
+           if (index === 3) {
+             $('.copyright').fadeIn()
+           }
+
            alist.parent().removeClass("active")
            var idx = 1;
            alist.eq(index - idx).parent().addClass("active")
@@ -156,6 +183,7 @@ Drupal.behaviors.informing_language_selector = {
 
         langsList.each(function() {
           if ($(this).attr('hreflang') === lang) {
+            localStorage.language = lang
             document.location = $(this).find("a").attr("href")
           }
         })
