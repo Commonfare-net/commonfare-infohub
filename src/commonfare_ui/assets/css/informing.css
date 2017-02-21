@@ -11,7 +11,9 @@
   box-shadow: none;
 }
 
-
+.block-views-blockwelfare-measure-sections-block-3 li a {
+  color: #472D33;
+}
 
 .pointer {
   cursor: pointer;
@@ -19,7 +21,7 @@
 
 /* LanguageSelection: */
 .language-select {
-  font-family: Asap-Medium;
+  font-family: Asap;
   font-size: 18px;
   color: #FFFFFF;
 }
@@ -31,10 +33,9 @@ body.commonfare {
   line-height: 24px;
 }
 
-
 /* SubHeader: */
 .subheader {
-  font-family: Asap-Medium;
+  font-family: Asap;
   font-size: 24px;
   color: #6C575C;
   line-height: 35px;
@@ -44,7 +45,7 @@ body.commonfare {
 
 /* Landing Page - Partecipa */
 .partecipa-page {
-  font-family: Asap-Regular;
+  font-family: Asap;
   font-size: 24px;
   color: #472D33;
   line-height: 35px;
@@ -234,6 +235,10 @@ body .main-header .menu-base-theme li
   padding: 10px 0;
 }
 
+.commonfare-homepage .button_how button {
+  font-weight: bold;
+}
+
 .text-white {
   color: white !important;
 }
@@ -273,17 +278,20 @@ div.copyright {
 #participate #mc_embed_signup .button {
   color: #FFFFFF;
   background: #EC6C58;
+  line-height: 42px;
+  height: 42px;
 }
 #participate #mc_embed_signup .button:hover {
   background: #E7472E;
 }
 #participate #mc_embed_signup input.email,
 #participate #mc_embed_signup input.button {
-  margin: 5px auto ;
+  margin: 5px auto;
 }
 #participate #mc_embed_signup input.email {
+  width: 40%;
   border-color: #EC6C58;
-  line-height: 32px;
+  line-height: 42px;
 }
 
 .node--type-welfare-organization .field--name-field-short-description {
@@ -335,11 +343,13 @@ div.copyright {
     color: #BBB;
 }
 
+
+.card-content .card-item .views-field-name i,
 .card-content .card-item .views-field-name a,
 .card-content .card-item .views-field-name a:hover
 {
   text-decoration: none;
-  color: #EC6C58;
+  color: #472D33;
 }
 
 
@@ -371,6 +381,14 @@ div.copyright {
     margin: 0em;
   }
 
+  .node-navigation .col-xs-12 {
+    width: 50%;
+  }
+  .prev .title,
+  .next .title
+  {
+    display: none;
+  }
 
   .copyright {
     display: none;
@@ -384,6 +402,10 @@ div.copyright {
   }
   body h4 {
     font-size: 1.2em;
+  }
+
+  .country-selector .dropdown-menu li a {
+    font-size: 110%;
   }
 
   body header.main-header,
@@ -424,12 +446,14 @@ div.copyright {
     display: none;
   }
   .main-header .region-primary-menu .menu-base-theme li a {
+    font-family: Asap, Verdena, sans-serif;
     border: 0px none;
-    padding: 10px 5px;
+    padding: 10px;
     background: transparent;
     color: white;
     text-align: center;
     font-size: 95%;
+    font-weight: bold;
   }
   .main-header .region-primary-menu .menu-base-theme li.active,
   .path-taxonomy .menu-base-theme li:nth-child(2),
@@ -465,10 +489,12 @@ div.copyright {
     padding: 0px 0px 5px 0px;
   }
 
+
+  .path-taxonomy .card-content .card-item .wrapper:hover .views-field-name i,
   .path-taxonomy .card-content .card-item .wrapper:hover .views-field-name a,
   .path-taxonomy .card-content .card-item:hover .views-field-name a:hover
   {
-    color: #EC6C58;
+    color: #472D33;
   }
 
   .path-taxonomy .card-content .card-item .button_how
@@ -509,6 +535,7 @@ div.copyright {
     max-height: 60px;
     cursor: pointer;
     padding: 0.25em 1em;
+    box-shadow: 2px 2px 4px #BBB;
   }
   .commonfare-homepage .card-content {
     padding: 0 1em;
@@ -523,9 +550,10 @@ div.copyright {
   .commonfare-homepage .card-content .card-item .wrapper h4,
   .commonfare-homepage .card-content .card-item .wrapper h4 a,
   .commonfare-homepage .card-content .card-item .wrapper h4 a:hover,
+  .commonfare-homepage .card-content .card-item .wrapper h4 a:link
   .commonfare-homepage .card-content .card-item .wrapper h4 a:active
   {
-    color: #FFF;
+    color: #FFF !important;
     font-weight: bold;
     text-align: center;
   }
@@ -556,10 +584,18 @@ div.copyright {
     color: black !important;
   }
   .mobile-menu-item .fa {
-    font-size: 36px;
+    font-size: 28px;
   }
   .mobile-menu-item .close-button {
-    padding: 0.5em;
+    padding: 0.25em;
+  }
+
+  .mobile-menu-item .logo-red {
+    margin-top: 0.5em;
+    text-align: center;
+  }
+  .mobile-menu-item .logo-red img {
+    max-width: 40%;
   }
 
   .path-taxonomy .page-title {
@@ -568,6 +604,7 @@ div.copyright {
 
   .path-taxonomy .term-description {
     font-size: 70%;
+    text-align: left;
   }
 
   .path-taxonomy .card-content {

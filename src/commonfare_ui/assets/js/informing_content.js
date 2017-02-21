@@ -49,11 +49,19 @@ Drupal.behaviors.informing_mobile_accordion = {
           document.location  = block.find('h4').parent().next().next().find('a').attr('href')
         }
 
-        block.find('h4').parent().next().hide()
-        block.find('h4').parent().next().next().hide()
+        var title = block.find('h4')
+        title.find("i").removeClass("fa-caret-down").addClass("fa-caret-right")
+        var p = title.parent().next()
+        p.hide()
+        p.next().hide()
+        p.parent().removeClass('is-open')
 
-        $(this).parent().next().show()
-        $(this).parent().next().next().show()
+        title = $(this)
+        title.find("i").removeClass("fa-caret-right").addClass("fa-caret-down")
+        var t = title.parent()
+        t.show()
+        t.next().show()
+        t.parent().addClass('is-open')
 
         return false
       })
