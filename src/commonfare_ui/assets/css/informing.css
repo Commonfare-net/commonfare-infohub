@@ -250,6 +250,8 @@ div.copyright {
   font-weight: bold;
   color: #FFFFFF;
   background: #EC6C58;
+  margin-top: -50px;
+  position: relative;
 }
 
 .path-frontpage dvi.copyright {
