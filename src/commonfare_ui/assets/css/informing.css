@@ -11,6 +11,10 @@
   box-shadow: none;
 }
 
+.block-views-blockwelfare-measure-sections-block-3 {
+  margin-bottom: 2em;
+}
+
 .block-views-blockwelfare-measure-sections-block-3 li a {
   color: #472D33;
 }
@@ -82,7 +86,7 @@ body h4 {
 }
 
 #wrapper {
-  padding-bottom: 1em;
+  padding-bottom: 5em;
 }
 
 .block-views-blocktaxonomy-term-item-block-2 .term-name,
@@ -255,8 +259,6 @@ div.copyright {
   font-weight: bold;
   color: #FFFFFF;
   background: #EC6C58;
-  margin-top: -50px;
-  position: relative;
 }
 
 .path-frontpage dvi.copyright {
@@ -356,7 +358,7 @@ div.copyright {
 .path-frontpage .card-content .card-item .wrapper:hover .views-field-name a,
 .path-frontpage .card-content .card-item:hover .views-field-name a:hover
 {
-  color: #EC6C58;
+  color: #472D33;
 }
 
 .path-taxonomy .card-content .card-item .wrapper:hover .views-field-name a,
@@ -368,6 +370,11 @@ div.copyright {
 
 /* Mobile smaller than 768px */
 @media (max-width: 768px) {
+
+  div.copyright {
+    margin-top: -5em;
+    position: relative;
+  }
 
   html, body {
     width: 100%;
