@@ -261,7 +261,7 @@ div.copyright {
   background: #EC6C58;
 }
 
-.path-frontpage dvi.copyright {
+.path-frontpage .copyright {
   position: absolute;
   bottom: 0px;
   width: 100%;
@@ -277,23 +277,28 @@ div.copyright {
   width: 100%;
   margin: 0 auto;
 }
+#participate #mc_embed_signup form {
+  padding: 0;
+  margin: 0;
+}
 #participate #mc_embed_signup .button {
   color: #FFFFFF;
   background: #EC6C58;
-  line-height: 42px;
-  height: 42px;
+  line-height: 36px;
+  height: 36px;
 }
 #participate #mc_embed_signup .button:hover {
   background: #E7472E;
 }
 #participate #mc_embed_signup input.email,
 #participate #mc_embed_signup input.button {
+  min-width: 160px;
   margin: 5px auto;
 }
 #participate #mc_embed_signup input.email {
   width: 40%;
   border-color: #EC6C58;
-  line-height: 42px;
+  line-height: 36px;
 }
 
 .node--type-welfare-organization .field--name-field-short-description {
@@ -381,8 +386,12 @@ div.copyright {
     height: : 100%;
   }
 
+  #wrapper {
+    padding-bottom: 1em;
+  }
+
   .path-frontpage #participate #wrapper {
-    padding: 0em 0 0 0;
+    padding: 0px;
   }
   .path-frontpage #participate #wrapper p {
     margin: 0em;
@@ -740,6 +749,10 @@ div.copyright {
   .path-taxonomy .card-content .card-item .wrapper:hover .button_how a
    {
     color: white !important;
+  }
+
+  .small-height #wrapper {
+    padding-bottom: 1em;
   }
 
   .path-frontpage #get-informed.small-height #wrapper .content_layout {
