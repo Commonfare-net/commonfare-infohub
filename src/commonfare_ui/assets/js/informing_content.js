@@ -23,7 +23,7 @@ Drupal.behaviors.informing_desktyop_small_h = {
 
       if(isMobile()) return
 
-      var block = $("#get-informed");
+      var block = $(".commonfare-homepage > section");
 
       if($(window).height() >= 820)
         block.removeClass('small-height')
@@ -56,6 +56,26 @@ Drupal.behaviors.informing_mobile_accordion = {
         $(this).parent().next().next().show()
 
         return false
+      })
+
+    })
+  }
+}
+
+Drupal.behaviors.informing_home_fit_vertical = {
+  attach: function (context, settings) {
+    jQuery(function ($) {
+
+      if(isMobile()) return
+
+      var block = $("body.path-frontpage");
+      if(!block.size()) return
+      if(block.is(".processed-fit-center")) return
+      block.addClass("processed-fit-center")
+
+      var h = (($(window).height() - $('.about-main-header').height()) / 2) - (block.find("#wrapper").height() / 2)
+      block.find("#wrapper").css({
+        'padding-top': h + 'px'
       })
 
     })
