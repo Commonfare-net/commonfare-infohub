@@ -34,9 +34,50 @@ Drupal.behaviors.informing_desktyop_small_h = {
   }
 }
 
+Drupal.behaviors.informing_breadcrumb_rewarp = {
+  attach: function (context, settings) {
+    jQuery(function ($) {
+
+      var block = $(".breadcrumb");
+      if(!block.size()) return
+      if(block.is(".processed-breadcrumb")) return
+      block.addClass("processed-breadcrumb")
+
+      var lis = block.find("li")
+      lis.each(function() {
+        var t = $(this)
+        var a = $(this).find('a').clone();
+        if(lis.index(t) === 0) {
+          a = t.find('a')
+            // .clone()
+            .attr('href', '/#get-informed')
+            .text( $('#main-menu li:eq(1) a').text() )
+        }
+
+        if(lis.index(t) === lis.size()-1) {
+          t.remove();
+          return
+        }
+
+        t.empty()
+        t.append(a);
+
+        if(lis.index(t) !== lis.size()-2) {
+          t.append('<span class="glue"> &gt; </span>');
+        }
+
+      })
+
+
+    })
+  }
+}
+
 Drupal.behaviors.informing_mobile_accordion = {
   attach: function (context, settings) {
     jQuery(function ($) {
+
+      if(!isMobile()) return
 
       var block = $(".path-taxonomy .card-content .card-item");
       if(!block.size()) return
@@ -54,6 +95,7 @@ Drupal.behaviors.informing_mobile_accordion = {
         var p = title.parent().next()
         p.hide()
         p.next().hide()
+        p.next().next().hide()
         p.parent().removeClass('is-open')
 
         title = $(this)
@@ -61,6 +103,7 @@ Drupal.behaviors.informing_mobile_accordion = {
         var t = title.parent()
         t.show()
         t.next().show()
+        t.next().next().show()
         t.parent().addClass('is-open')
 
         return false

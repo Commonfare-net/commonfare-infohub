@@ -1,4 +1,8 @@
 
+.breadcrumb li a {
+  color: #472D33;
+}
+
 .onepage-pagination {
   display: none;
 }
@@ -87,6 +91,10 @@ body h4 {
 
 #wrapper {
   padding-bottom: 5em;
+}
+
+#get-informed #wrapper {
+  padding-bottom: 0em;
 }
 
 .block-views-blocktaxonomy-term-item-block-2 .term-name,
@@ -636,6 +644,18 @@ div.copyright {
   {
     display: none;
   }
+  body.commonfare.path-taxonomy .card-content .card-item .button_how a.text-red.large .label
+  {
+    font-size: 60%;
+    color: #472D33;
+    text-align: left;
+    display: block;
+    line-height: 2em;
+    padding: 0 15px;
+  }
+  .path-taxonomy .card-content .card-item .button_how .fa {
+    display: none;
+  }
   .path-taxonomy .card-content .card-item .views-field-name .fa-caret-right {
     display: inline;
   }
@@ -737,6 +757,9 @@ div.copyright {
   .path-taxonomy .card-content .button_how .btn {
     width: 47px;
     padding: 16px;
+  }
+  .path-taxonomy .card-content .button_how .label {
+    display: none;
   }
 
   .path-taxonomy .card-content .card-item .wrapper:hover {
