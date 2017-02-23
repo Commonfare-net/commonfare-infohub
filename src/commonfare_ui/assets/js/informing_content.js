@@ -175,7 +175,7 @@ Drupal.behaviors.informing_home_scrolling = {
          easing: "ease",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in",
                                           // "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
          animationTime: 1000,             // AnimationTime let you define how long each section takes to animate
-         pagination: true,                // You can either show or hide the pagination. Toggle true for show, false for hide.
+         pagination: false,                // You can either show or hide the pagination. Toggle true for show, false for hide.
          updateURL: false,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
          beforeMove: function(index) {
 
@@ -208,7 +208,7 @@ Drupal.behaviors.informing_home_scrolling = {
            var idx = 1;
            alist.eq(index - idx).parent().addClass("active")
          },   // This option accepts a callback function. The function will be called after the page moves.
-         loop: true,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
+         loop: false,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
          keyboard: true,                  // You can activate the keyboard controls
          responsiveFallback: false,        // You can fallback to normal page scroll by defining the width of the browser in which
                                           // you want the responsive fallback to be triggered. For example, set this to 600 and whenever
@@ -246,8 +246,10 @@ Drupal.behaviors.informing_home_scrolling = {
       switch (document.location.hash) {
         case "#about":
           block.moveTo(1)
+          break
         case "#get-informed":
           block.moveTo(2)
+          break
         case "#participate":
           block.moveTo(3)
           break;
@@ -270,22 +272,35 @@ Drupal.behaviors.informing_language_selector = {
       var langsBlock = $("#block-selettorelingua-2")
       var langsList = langsBlock.find("li")
 
+      // load the default language
+      getSelectedLanguage()
+
+      var showCurrentLang = function(lang) {
+        lang = lang || getSelectedLanguage()
+        var curr = block.find('.dropdown-menu li a[href="#'+ lang +'"]').eq(0).text()
+        block.find('.curr').each(function() {
+          $(this).text( curr )
+        })
+      }
+
       block.find('.dropdown-menu li a').on('click', function() {
         var lang = $(this).data('lang')
         langsList.each(function() {
           if ($(this).hasClass(lang)) {
             localStorage.language = lang
+            showCurrentLang(lang)
             document.location = $(this).find("a").attr("href")
           }
         })
         return false
       })
 
-
       var isCurrent = isCurrentLanguage(localStorage.language)
       if (localStorage.language && !isCurrent) {
         block.find('.dropdown-menu li a[href="#'+ localStorage.language +'"]').trigger('click')
       }
+
+      showCurrentLang();
 
     })
   }

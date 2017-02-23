@@ -1,4 +1,7 @@
 
+.breadcrumb li {
+  display: inline;
+}
 .breadcrumb li a {
   color: #472D33;
 }
