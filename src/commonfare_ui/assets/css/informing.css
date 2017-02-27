@@ -627,7 +627,10 @@ div.copyright {
     top: 0px;
     left: 0px;
   }
-  .mobile-menu-item button.btn {
+  .mobile-menu-item button.btn,
+  .mobile-menu-item .label,
+  .mobile-menu-item .curr
+  {
     background: transparent !important;
     color: black !important;
   }
