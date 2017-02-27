@@ -899,3 +899,7 @@ body.commonfare.page-node-type-welfare-organization #block-commonfare-page-title
   margin-bottom: 4.5em;
   margin-top: 1em;
 }
+
+#block-commonfare-breadcrumbs ol {
+  padding: 0;
+}
