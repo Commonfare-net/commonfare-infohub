@@ -340,6 +340,7 @@ div.copyright {
 
 .page-node-type-welfare-organization .block-views-blocktaxonomy-term-item-block-2 .term-description {
   display: none;
+  margin-left: 10px;
 }
 
 .page-node-type-welfare-organization .block-views-blocktaxonomy-term-item-block-2 {
@@ -650,12 +651,14 @@ div.copyright {
   }
 
   .path-taxonomy .term-description {
-    font-size: 70%;
     text-align: left;
+    margin-left: 10px;
   }
 
   .path-taxonomy .card-content {
-
+  }
+  .path-taxonomy .card-content header {
+    border-bottom: 1px solid #CCC;
   }
   .path-taxonomy .card-content .card-item {
     border-bottom: 1px solid #CCC;
