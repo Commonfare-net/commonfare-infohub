@@ -752,10 +752,9 @@ div.copyright {
     margin: 0.5em 0 4em 0;
   }
 
-  .card-content .views-field-name,
-  .card-content .views-field-description__value
+  .commonfare-homepage .card-content .views-field-description__value
   {
-    /*text-align: center;*/
+    text-align: center;
   }
 
   .path-taxonomy .card-content .views-field-name
