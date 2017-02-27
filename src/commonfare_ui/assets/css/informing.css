@@ -265,7 +265,7 @@ body .main-header .menu-base-theme li
 }
 
 div.copyright {
-  font-size: 12px;
+  font-size: 14px;
   font-family: Asap;
   font-weight: bold;
   color: #FFFFFF;
@@ -781,10 +781,6 @@ div.copyright {
     padding-bottom: 1em;
   }
 
-  .path-frontpage #get-informed.small-height #wrapper .content_layout {
-    font-size: 95%;
-    line-height: 90%;
-  }
   .path-frontpage #get-informed.small-height #wrapper p {
     margin: 0;
   }
@@ -814,5 +810,33 @@ div.copyright {
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+
+}
+
+
+/** UI design review */
+
+body.commonfare .language-selector .btn,
+body.commonfare div.copyright
+{
+  font-size: 14px;
+}
+
+body.commonfare h3 {
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+body.commonfare #get-informed .field--name-body,
+body.commonfare .card-content .views-field-description__value
+{
+  color: #6C575C;
+  font-weight: 600;
+}
+
+body.commonfare #block-commonfare-main-menu li a {
+  font-weight: 600;
+  font-size: 16px;
 
 }
