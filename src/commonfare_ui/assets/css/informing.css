@@ -76,6 +76,10 @@ body h1, body h2, body h3, body h4, body h5, body h6
   font-weight: bold;
 }
 
+body h1 {
+  font-size: 26px;
+}
+
 body h2 {
   font-size: 2.4em;
 }
@@ -384,8 +388,24 @@ div.copyright {
 }
 
 
+#block-views-block-taxonomy-term-item-block-2 {
+  display: none;
+}
+#block-commonfare-breadcrumbs {
+  display: block;
+  margin-top: 4.5em;
+  font-weight: 600;
+}
+
 /* Mobile smaller than 768px */
 @media (max-width: 768px) {
+
+  #block-views-block-taxonomy-term-item-block-2 {
+    display: block;
+  }
+  #block-commonfare-breadcrumbs {
+    display: none;
+  }
 
   div.copyright {
     margin-top: -5em;
@@ -729,7 +749,7 @@ div.copyright {
   .card-content .views-field-name,
   .card-content .views-field-description__value
   {
-    text-align: center;
+    /*text-align: center;*/
   }
 
   .path-taxonomy .card-content .views-field-name
@@ -745,6 +765,7 @@ div.copyright {
 
   .card-content .card-item .wrapper .views-field-name h4 {
     font-size: 1.2em;
+    text-align: center;
   }
 
   .card-content .views-field-description__value
@@ -816,10 +837,15 @@ div.copyright {
 
 /** UI design review */
 
+
 body.commonfare .language-selector .btn,
 body.commonfare div.copyright
 {
   font-size: 14px;
+}
+
+body.commonfare .country-selector .btn {
+  font-size: 16px;
 }
 
 body.commonfare h3 {
@@ -839,4 +865,37 @@ body.commonfare #block-commonfare-main-menu li a {
   font-weight: 600;
   font-size: 16px;
 
+}
+
+
+#block-commonfare-content .field--name-field-short-description {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+
+.node--type-welfare-organization .field--name-field-short-description .field__label, .node--type-welfare-organization .field--name-field-content strong,
+.node--type-welfare-organization .field--name-field-content h3,
+.node--type-welfare-organization .field--name-field-content h4 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.node--type-welfare-organization .field--name-field-short-description .field__label, .node--type-welfare-organization .field--name-field-content strong,
+.node--type-welfare-organization .field--name-field-content h3,
+.node--type-welfare-organization .field--name-field-content h4 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.node--type-welfare-organization .field--name-field-content p
+{
+  font-size: 18px;
+  font-weight: normal;
+}
+
+
+body.commonfare.page-node-type-welfare-organization #block-commonfare-page-title {
+  margin-bottom: 4.5em;
+  margin-top: 1em;
 }
