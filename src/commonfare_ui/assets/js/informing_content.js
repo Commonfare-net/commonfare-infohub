@@ -26,7 +26,7 @@ Drupal.behaviors.informing_toggle_lang = {
       if(block.is(".processed-no-lang-content")) return
       block.addClass("processed-no-lang-content")
 
-      block.hide()
+      block.hide().removeClass('hidden')
       var cards = $('.card-content .views-field-langcode .field-content').each(function() {
         var lang = $(this).text().toLowerCase()
         switch (lang) {
