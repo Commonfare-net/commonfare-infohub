@@ -1,7 +1,7 @@
 
 var getSupportedLanguages = function() {
   var langsBlock = jQuery("#block-selettorelingua-2")
-  return langsBlock.find("li").map(function () {
+  return langsBlock.find("ul.links li").map(function () {
     return jQuery(this).attr('class').replace("is-active", '').replace(" ", '')
   })
 }
@@ -15,6 +15,54 @@ var getSelectedLanguage = function() {
 
 var isCurrentLanguage = function(lang) {
   return lang === getSelectedLanguage()
+}
+
+Drupal.behaviors.informing_toggle_lang = {
+  attach: function (context, settings) {
+    jQuery(function ($) {
+
+      var block = $(".no-lang-content");
+      if(!block.size()) return
+      if(block.is(".processed-no-lang-content")) return
+      block.addClass("processed-no-lang-content")
+
+      block.hide()
+      var cards = $('.card-content .views-field-langcode .field-content').each(function() {
+        var lang = $(this).text().toLower()
+        switch (lang) {
+          case "it":
+            lang = "it"
+            break;
+          case "ne":
+            lang = "nl"
+            break;
+          case "hr":
+            lang = "hr"
+            break;
+        }
+        if (getSelectedLanguage() !== lang)
+          block.show()
+      })
+
+    })
+  }
+}
+
+Drupal.behaviors.informing_translator = {
+  attach: function (context, settings) {
+    jQuery(function ($) {
+
+      var block = $(".country-selector .btn .label, .language-selector .btn .label, .no-lang-content, .select_country_msg > h4");
+      if(!block.size()) return
+      if(block.is(".processed-translator")) return
+      block.addClass("processed-translator")
+
+      block.each(function() {
+        $(this).text( Drupal.t($(this).text()) )
+      })
+
+    })
+  }
 }
 
 Drupal.behaviors.informing_desktyop_small_h = {

@@ -6,6 +6,17 @@ define("commonfare_pages", [
   "participate" => 26,
 ]);
 
+function commonfare_ui_texts() {
+  $list = [
+    'Learn How',
+    'I am in',
+    'Language',
+    'Please select the country of your interest',
+    'Sorry, this content is not available in your language'
+  ];
+  array_map('t', $list);
+}
+
 function commonfare_ui_render_page($nid) {
   $entity_type = 'node';
   $view_mode = 'full';
@@ -17,6 +28,7 @@ function commonfare_ui_render_page($nid) {
 
 function commonfare_ui_get_pages() {
   $pages = \Drupal::config('commonfare_ui.settings')->get('pages');
+  commonfare_ui_texts();
   if (!$pages) {
     $config = \Drupal::service('config.factory')->getEditable('commonfare_ui.settings');
     $config->set('pages', commonfare_pages);
