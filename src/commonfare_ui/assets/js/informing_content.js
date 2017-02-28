@@ -28,7 +28,7 @@ Drupal.behaviors.informing_toggle_lang = {
 
       block.hide()
       var cards = $('.card-content .views-field-langcode .field-content').each(function() {
-        var lang = $(this).text().toLower()
+        var lang = $(this).text().toLowerCase()
         switch (lang) {
           case "it":
             lang = "it"
