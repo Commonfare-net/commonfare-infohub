@@ -46,16 +46,19 @@ class CommonfareRedirectSubscriber implements EventSubscriberInterface {
     // }
 
     $pages = commonfare_ui_get_pages();
+    $i = 1;
     foreach ($pages as $label => $nid) {
       if($request->attributes->get('node')->get('nid')->value == $nid) {
 
         // This is where you set the destination.
         // $redirect_url = Url::fromUri('entity:node/123');
-        $redirect_url = Url::fromUri('internal:/#'.str_replace("_", "-", $label));
+        // $redirect_url = Url::fromUri('internal:/#'.str_replace("_", "-", $label));
+        $redirect_url = Url::fromUri('internal:/#'.$i);
         $response = new RedirectResponse($redirect_url->toString(), 301);
         $event->setResponse($response);
 
       }
+      $i++;
     }
 
 

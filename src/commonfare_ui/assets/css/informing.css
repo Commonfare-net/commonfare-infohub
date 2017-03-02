@@ -1,10 +1,4 @@
 
-.no-lang-content {
-  padding: 8px 0 0;
-  font-size: 16px;
-  font-weight: 600;
-}
-
 .breadcrumb li {
   display: inline;
 }
@@ -164,6 +158,9 @@ header.about-main-header {
 {
   border-bottom: 0px none;
   border-right: 0px none;
+}
+.path-taxonomy #wrapper
+{
   background: #FFFAF7;
 }
 
@@ -403,6 +400,27 @@ div.copyright {
   margin-top: 4.5em;
   font-weight: 600;
 }
+
+.country-selector-wrapper {
+  padding: 1.5em 0;
+}
+
+.country-selector-wrapper .break {
+  clear: both;
+  display: block;
+}
+
+.no-lang-content {
+  padding: 8px 0 0;
+  font-size: 16px;
+  font-weight: 600;
+  float: left;
+}
+
+.country-selector {
+  float: left;
+}
+
 
 /* Mobile smaller than 768px */
 @media (max-width: 768px) {
