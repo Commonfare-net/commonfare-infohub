@@ -46,7 +46,7 @@ function commonfare_ui_get_pages() {
 function commonfare_ui_preprocess_page__front(array &$variables)
 {
 
-  $txt = commonfare_ui_texts()
+  $txt = commonfare_ui_texts();
   $variables['page']['txts'] = $txt;
 
   $variables['page']['learn_how'] = $txt['learn_how'];
