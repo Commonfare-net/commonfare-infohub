@@ -14,9 +14,9 @@ function commonfare_ui_texts() {
     'Language',
     'Please select the country of your interest',
     'Sorry, this content is not available in your language',
-    'Previous'
-    'Next'
-    'Summary'
+    'Previous',
+    'Next',
+    'Summary',
     'Categories',
     'Content Location',
   ];
