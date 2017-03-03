@@ -22,7 +22,7 @@ function commonfare_ui_texts() {
     "name@domain.com",
   ];
   foreach ($list as $value) {
-    dsm($value)
+    dsm($value);
     $val2 = t($value);
   }
 }
