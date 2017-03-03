@@ -7,24 +7,20 @@ define("commonfare_pages", [
 ]);
 
 function commonfare_ui_texts() {
-  $list = [
-    "Next",
-    "Previous",
-    "Summary",
-    "Discover",
-    "Categories",
-    "Language",
-    "Please select the country of your interest",
-    "Sorry, this content is not available in your language",
-    "I am in",
-    "Keep me updated",
-    "Commonfare.net is a PIE News Project",
-    "name@domain.com",
+  return [
+    t("Next"),
+    t("Previous"),
+    t("Summary"),
+    "learn_how" => t("Discover"),
+    t("Categories"),
+    t("Language"),
+    t("Please select the country of your interest"),
+    t("Sorry, this content is not available in your language"),
+    t("I am in"),
+    "subscribe" => t("Keep me updated"),
+    t("Commonfare.net is a PIE News Project"),
+    "email" => t("name@domain.com"),
   ];
-  foreach ($list as $value) {
-    dsm($value);
-    $val2 = t($value);
-  }
 }
 
 function commonfare_ui_render_page($nid) {
@@ -50,9 +46,12 @@ function commonfare_ui_get_pages() {
 function commonfare_ui_preprocess_page__front(array &$variables)
 {
 
-  $variables['page']['learn_how'] = t("Discover");
-  $variables['page']['subscribe'] = t("Subscribe");
-  $variables['page']['txts'] = commonfare_ui_texts();
+  $txt = commonfare_ui_texts()
+  $variables['page']['txts'] = $txt;
+
+  $variables['page']['learn_how'] = $txt['learn_how'];
+  $variables['page']['subscribe'] = $txt['subscribe'];
+  $variables['page'] = $txt['email'];
 
   $pages = commonfare_ui_get_pages();
   foreach ($pages as $label => $nid) {
