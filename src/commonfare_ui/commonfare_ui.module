@@ -9,10 +9,16 @@ define("commonfare_pages", [
 function commonfare_ui_texts() {
   $list = [
     'Learn How',
+    'Discover',
     'I am in',
     'Language',
     'Please select the country of your interest',
-    'Sorry, this content is not available in your language'
+    'Sorry, this content is not available in your language',
+    'Previous'
+    'Next'
+    'Summary'
+    'Categories',
+    'Content Location',
   ];
   array_map('t', $list);
 }
@@ -40,7 +46,8 @@ function commonfare_ui_get_pages() {
 function commonfare_ui_preprocess_page__front(array &$variables)
 {
 
-  $variables['page']['learn_how'] = t("Learn How");
+  $variables['page']['learn_how'] = t("Discover");
+  $variables['page']['subscribe'] = t("Subscribe");
   $pages = commonfare_ui_get_pages();
   foreach ($pages as $label => $nid) {
     $variables['page'][$label] = commonfare_ui_render_page($nid);
