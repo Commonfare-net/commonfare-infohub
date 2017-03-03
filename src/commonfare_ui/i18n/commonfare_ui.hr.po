@@ -1,0 +1,27 @@
+
+msgid "Discover"
+msgstr "Saznaj više"
+
+msgid "Categories"
+msgstr "Kategorije"
+
+msgid "Language"
+msgstr "Jezik"
+
+msgid "Please select the country of your interest"
+msgstr "Odaberite zemlju koja vas interesira"
+
+msgid "Sorry, this content is not available in your language"
+msgstr "Nažalost ovaj sadržaj nije dostupan na vašem jeziku."
+
+msgid "I am in"
+msgstr "Sa sam u"
+
+msgid "Keep me updated"
+msgstr "Objavještavaj me!"
+
+msgid "Commonfare.net is a PIE News Project"
+msgstr "Commonfare.net je projekt Pie News-a"
+
+msgid "name@domain.com"
+msgstr "ime@domena.hr"

@@ -51,8 +51,14 @@ Drupal.behaviors.informing_toggle_lang = {
 Drupal.behaviors.informing_translator = {
   attach: function (context, settings) {
     jQuery(function ($) {
-
-      var block = $(".country-selector .btn .label, .language-selector .btn .label, .no-lang-content, .select_country_msg > h4");
+      var block = $([
+        ".node-navigation .next .label .label",
+        ".node-navigation .prev .label .label",
+        ".country-selector .btn .label",
+        ".language-selector .btn .label",
+        ".no-lang-content",
+        ".select_country_msg > h4"
+      ].join(", "));
       if(!block.size()) return
       if(block.is(".processed-translator")) return
       block.addClass("processed-translator")

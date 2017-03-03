@@ -175,7 +175,9 @@ header.about-main-header {
     font-size: 14px;
 }
 .large,
-.large .fa {
+.large .fa,
+.large .label
+ {
     font-size: 24px;
 }
 
@@ -213,6 +215,8 @@ header.about-main-header nav
   margin: 0 auto;
 }
 
+.node-navigation .prev:hover .text-red .label,
+.node-navigation .next:hover .text-red .label,
 .node-navigation .prev:hover .text-red,
 .node-navigation .next:hover .text-red
 {
