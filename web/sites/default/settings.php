@@ -32,6 +32,6 @@ $databases['default']['default'] = array(
 $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/files/config_eAk2M2pW6Pe7EWjbOHmtOYX2NB7rPzkBr6yDi_67tVO_954aQ_h5Wdje-5TO0U4XKF4BK3QKQg/sync';
 
-if (file_exists(__DIR__ . '/settings.local.php')) {
-    include __DIR__ . '/settings.local.php';
-}
+// if (file_exists(__DIR__ . '/settings.local.php')) {
+//     include __DIR__ . '/settings.local.php';
+// }
