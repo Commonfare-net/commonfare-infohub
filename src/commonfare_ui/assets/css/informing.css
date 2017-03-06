@@ -215,6 +215,14 @@ header.about-main-header nav
   margin: 0 auto;
 }
 
+.node-navigation .prev .text-red .label,
+.node-navigation .next .text-red .label,
+.node-navigation .prev .text-red,
+.node-navigation .next .text-red
+{
+  color: #EC6C58 !important;
+}
+
 .node-navigation .prev:hover .text-red .label,
 .node-navigation .next:hover .text-red .label,
 .node-navigation .prev:hover .text-red,
@@ -863,6 +871,12 @@ div.copyright {
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 
+  /* welfare card full page content width */
+  .page-node-type-welfare-organization.commonfare #page-title .container,
+  .page-node-type-welfare-organization.commonfare #wrapper .container {
+    width: 800px;
+  }
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -938,9 +952,4 @@ body.commonfare.page-node-type-welfare-organization #block-commonfare-page-title
 
 #block-commonfare-breadcrumbs ol {
   padding: 0;
-}
-
-.page-node-type-welfare-organization.commonfare #page-title .container,
-.page-node-type-welfare-organization.commonfare #wrapper .container {
-  width: 800px;
 }
