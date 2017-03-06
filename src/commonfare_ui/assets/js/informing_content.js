@@ -10,9 +10,13 @@ var getSiteLanguage = function() {
   return jQuery("#block-selettorelingua-2").find("li.is-active").eq(0).attr('class').replace('is-active', '').replace(' ', '')
 }
 
+var setSelectedLanguage = function(lang) {
+  localStorage.language = lang
+}
+
 var getSelectedLanguage = function() {
   if(!localStorage.language) {
-    localStorage.language = getSiteLanguage()
+    setSelectedLanguage(getSiteLanguage())
   }
   return localStorage.language
 }
@@ -356,7 +360,7 @@ Drupal.behaviors.informing_language_selector = {
         var lang = $(this).data('lang')
         langsList.each(function() {
           if ($(this).hasClass(lang)) {
-            localStorage.language = lang
+            setSelectedLanguage(lang)
             showCurrentLang(lang)
             document.location = $(this).find("a").attr("href")
           }
