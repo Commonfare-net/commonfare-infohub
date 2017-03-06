@@ -56,6 +56,7 @@ Drupal.behaviors.informing_translator = {
         ".node-navigation .prev .label .label",
         ".country-selector .btn .label",
         ".language-selector .btn .label",
+        ".button_how a.btn",
         ".no-lang-content",
         ".select_country_msg > h4"
       ].join(", "));
