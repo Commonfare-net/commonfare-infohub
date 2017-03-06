@@ -6,22 +6,6 @@ define("commonfare_pages", [
   "participate" => 26,
 ]);
 
-function commonfare_ui_texts() {
-  return [
-    t("Next"),
-    t("Previous"),
-    t("Summary"),
-    "learn_how" => t("Discover"),
-    t("Categories"),
-    t("Language"),
-    t("Please select the country of your interest"),
-    t("Sorry, this content is not available in your language"),
-    t("I am in"),
-    "subscribe" => t("Keep me updated"),
-    t("Commonfare.net is a PIE News Project"),
-    "email" => t("name@domain.com"),
-  ];
-}
 
 function commonfare_ui_render_page($nid) {
   $entity_type = 'node';
@@ -34,7 +18,6 @@ function commonfare_ui_render_page($nid) {
 
 function commonfare_ui_get_pages() {
   $pages = \Drupal::config('commonfare_ui.settings')->get('pages');
-  commonfare_ui_texts();
   if (!$pages) {
     $config = \Drupal::service('config.factory')->getEditable('commonfare_ui.settings');
     $config->set('pages', commonfare_pages);
@@ -46,12 +29,24 @@ function commonfare_ui_get_pages() {
 function commonfare_ui_preprocess_page__front(array &$variables)
 {
 
-  $txt = commonfare_ui_texts();
-  $variables['page']['txts'] = $txt;
+  $variables['page']['txts'] = [
+    'next' => t("Next"),
+    'prev' => t("Previous"),
+    'summary' => t("Summary"),
+    "learn_how" => t("Discover"),
+    "cat" => t("Categories"),
+    "lang" => t("Language"),
+    "please_select" => t("Please select the country of your interest"),
+    "sorry_no_lang" => t("Sorry, this content is not available in your language"),
+    "i_am_in" => t("I am in"),
+    "subscribe" => t("Keep me updated"),
+    "a_pie_proj" => t("Commonfare.net is a PIE News Project"),
+    "email" => t("name@domain.com"),
+  ];
 
-  $variables['page']['learn_how'] = $txt['learn_how'];
-  $variables['page']['subscribe'] = $txt['subscribe'];
-  $variables['page']['email'] = $txt['email'];
+  $variables['page']['learn_how'] = $variables['page']['txts']['learn_how'];
+  $variables['page']['subscribe'] = $variables['page']['txts']['subscribe'];
+  $variables['page']['email'] = $variables['page']['txts']['email'];
 
   $pages = commonfare_ui_get_pages();
   foreach ($pages as $label => $nid) {
