@@ -6,10 +6,14 @@ var getSupportedLanguages = function() {
   })
 }
 
+var getSiteLanguage = function() {
+  return jQuery("#block-selettorelingua-2").find("li.is-active").eq(0).attr('class').replace('is-active', '').replace(' ', '')
+}
+
 var getSelectedLanguage = function() {
-  if(localStorage.language) return localStorage.language
-  var langsBlock = jQuery("#block-selettorelingua-2")
-  localStorage.language  = langsBlock.find("li.is-active").eq(0).attr('class').replace('is-active', '').replace(' ', '')
+  if(!localStorage.language) {
+    localStorage.language = getSiteLanguage()
+  }
   return localStorage.language
 }
 
@@ -73,7 +77,7 @@ Drupal.behaviors.informing_translator = {
             t1 = drupalSettings.commonfare_ui.i18n[ t ]
           }
         }
-        console.warn("%s ==> %s", t, t1);
+        // console.warn("%s ==> %s", t, t1);
         $(this).text( t1 )
       })
 
@@ -342,6 +346,7 @@ Drupal.behaviors.informing_language_selector = {
       var showCurrentLang = function(lang) {
         lang = lang || getSelectedLanguage()
         var curr = block.find('.dropdown-menu li a[href="#'+ lang +'"]').eq(0).text()
+        // console.warn(curr, '---', lang)
         block.find('.curr').each(function() {
           $(this).text( curr )
         })
@@ -359,7 +364,7 @@ Drupal.behaviors.informing_language_selector = {
         return false
       })
 
-      var isCurrent = isCurrentLanguage(localStorage.language)
+      var isCurrent = isCurrentLanguage(getSiteLanguage())
       if (localStorage.language && !isCurrent) {
         block.find('.dropdown-menu li a[href="#'+ localStorage.language +'"]').trigger('click')
       }
