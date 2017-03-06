@@ -40,13 +40,15 @@ function commonfare_ui_preprocess_page__front(array &$variables)
     "sorry_no_lang" => t("Sorry, this content is not available in your language"),
     "i_am_in" => t("I am in"),
     "subscribe" => t("Keep me updated"),
-    "a_pie_proj" => t("Commonfare.net is a PIE News Project"),
+    "copyright" => t("Commonfare.net is a PIE News Project"),
     "email" => t("name@domain.com"),
   ];
 
   $variables['page']['learn_how'] = $variables['page']['txts']['learn_how'];
   $variables['page']['subscribe'] = $variables['page']['txts']['subscribe'];
   $variables['page']['email'] = $variables['page']['txts']['email'];
+  $variables['page']['copyright'] = $variables['page']['txts']['copyright'];
+
 
   $pages = commonfare_ui_get_pages();
   foreach ($pages as $label => $nid) {

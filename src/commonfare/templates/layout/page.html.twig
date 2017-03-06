@@ -339,9 +339,7 @@
 
       <!-- Copyright -->
       <div class="col-sm-6 col-md-6 copyright-text">
-        {% if copyright_text %}
-          <p>{{copyright_text}}</p>
-        {% endif %}
+        <p>{{ page.txts.copyright }}</p>
       </div>
       <!-- End Copyright -->
 
@@ -382,5 +380,5 @@
 <div class="hidden txts">
   {% for key, label in page.txts %}
       <span class="{{ key }}">{{ label }}</span>
-  {% endfor %}}
+  {% endfor %}
 </div>
