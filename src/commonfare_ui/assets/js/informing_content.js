@@ -58,14 +58,23 @@ Drupal.behaviors.informing_translator = {
         ".language-selector .btn .label",
         ".button_how a.btn",
         ".no-lang-content",
-        ".select_country_msg > h4"
+        ".select_country_msg > h4",
+        ".copyright-text"
       ].join(", "));
       if(!block.size()) return
       if(block.is(".processed-translator")) return
       block.addClass("processed-translator")
 
       block.each(function() {
-        $(this).text( Drupal.t($(this).text()) )
+        var t = $(this).text()
+        var t1 = Drupal.t($(this).text())
+        if(t1 === t) {
+          if (drupalSettings.commonfare_ui && drupalSettings.commonfare_ui.i18n) {
+            t1 = drupalSettings.commonfare_ui.i18n[ t ]
+          }
+        }
+        console.warn("%s ==> %s", t, t1);
+        $(this).text( t1 )
       })
 
     })

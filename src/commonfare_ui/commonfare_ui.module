@@ -29,20 +29,34 @@ function commonfare_ui_get_pages() {
 function commonfare_ui_preprocess_page__front(array &$variables)
 {
 
-  $variables['page']['txts'] = [
-    'next' => t("Next"),
-    'prev' => t("Previous"),
-    'summary' => t("Summary"),
-    "learn_how" => t("Discover"),
-    "cat" => t("Categories"),
-    "lang" => t("Language"),
-    "please_select" => t("Please select the country of your interest"),
-    "sorry_no_lang" => t("Sorry, this content is not available in your language"),
-    "i_am_in" => t("I am in"),
-    "subscribe" => t("Keep me updated"),
-    "copyright" => t("Commonfare.net is a PIE News Project"),
-    "email" => t("name@domain.com"),
+   $raw = [
+    'next'              => "Next",
+    'prev'              => "Previous",
+    'summary'           => "Summary",
+    "learn_how"         => "Discover",
+    "cat"               => "Categories",
+    "lang"              => "Language",
+    "please_select"     => "Please select the country of your interest",
+    "sorry_no_lang"     => "Sorry, this content is not available in your language",
+    "i_am_in"           => "I am in",
+    "subscribe"         => "Keep me updated",
+    "copyright"         => "Commonfare.net is a PIE News Project",
+    "email"             => "name@domain.com",
   ];
+
+
+  $i18n = [];
+  $txts = [];
+
+
+  foreach ($raw as $key => $text) {
+    $trans = t($text);
+    $i18n[ $text ] = $trans;
+    $txts[ $key ] = $trans;
+  }
+
+  $variables['page']['txts'] = $txts;
+  $variables['#attached']['drupalSettings']['commonfare_ui'] = [ 'i18n' => $i18n ];
 
   $variables['page']['learn_how'] = $variables['page']['txts']['learn_how'];
   $variables['page']['subscribe'] = $variables['page']['txts']['subscribe'];
