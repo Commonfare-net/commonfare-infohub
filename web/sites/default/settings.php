@@ -6,10 +6,12 @@ $settings['hash_salt'] = 'aXL-fq4hPT_tZXQSJL0lVxwVAU3ETQGwOGh09YzogJq236ythr6h1p
 $settings['update_free_access'] = false;
 $settings['container_yamls'][] = __DIR__ . '/services.yml';
 $settings['trusted_host_patterns'] = array(
-  '^commonfare\.eu$',
-  '^.+\.commonfare\.eu$',
-  '^commonfare\.eu$',
-  '^.+\.commonfare\.eu$',
+
+  '^commonfare\.net$',
+  '^.+\.commonfare\.net',
+  '^commonfare\.net$',
+  '^.+\.commonfare\.net',
+
   '^drupalvm\.dev$',
   '^localhost$',
   '^192.168.32.246$',
