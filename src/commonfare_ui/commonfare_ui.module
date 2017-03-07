@@ -48,7 +48,6 @@ function commonfare_ui_preprocess_page__front(array &$variables)
   $i18n = [];
   $txts = [];
 
-
   foreach ($raw as $key => $text) {
     $trans = t($text);
     $i18n[ $text ] = $trans;
@@ -56,7 +55,11 @@ function commonfare_ui_preprocess_page__front(array &$variables)
   }
 
   $variables['page']['txts'] = $txts;
-  $variables['#attached']['drupalSettings']['commonfare_ui'] = [ 'i18n' => $i18n ];
+  $variables['#attached']['drupalSettings']['commonfare_ui'] = [
+    'txts' => $txts,
+    'i18n' => $i18n,
+    'lang' => \Drupal::languageManager()->getCurrentLanguage()->getId(),
+  ];
 
   $variables['page']['learn_how'] = $variables['page']['txts']['learn_how'];
   $variables['page']['subscribe'] = $variables['page']['txts']['subscribe'];

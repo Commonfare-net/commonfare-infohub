@@ -1,4 +1,16 @@
 
+var loadCurrentLanguage = function(fn) {
+  return jQuery(function($) {
+    $.get('/lang')
+      .then(function(res) {
+        fn(null, JSON.parse(res).lang)
+      })
+      .fail(function(err) {
+        fn(err)
+      })
+  })
+}
+
 var getSupportedLanguages = function() {
   var langsBlock = jQuery("#block-selettorelingua-2")
   return langsBlock.find("ul.links li").map(function () {
@@ -15,8 +27,8 @@ var setSelectedLanguage = function(lang) {
 }
 
 var getSelectedLanguage = function() {
-  if(!localStorage.language) {
-    setSelectedLanguage(getSiteLanguage())
+  if(!localStorage.language && localStorage.siteLanguage) {
+    setSelectedLanguage(localStorage.siteLanguage)
   }
   return localStorage.language
 }
@@ -24,6 +36,32 @@ var getSelectedLanguage = function() {
 var isCurrentLanguage = function(lang) {
   return lang === getSelectedLanguage()
 }
+
+Drupal.behaviors.load_lang = {
+  attach: function (context, settings) {
+    jQuery(function ($) {
+      loadCurrentLanguage(function(err, lang) {
+        if(err) {
+          return
+        }
+        localStorage.siteLanguage = lang
+        if (getSiteLanguage() !== lang && getSelectedLanguage() !== getSiteLanguage()) {
+          document.location = jQuery("#block-selettorelingua-2").find("li." + lang + " a").attr('href')
+        }
+      })
+    })
+  }
+};
+
+// Drupal.behaviors.set_lang = {
+//   attach: function (context, settings) {
+//     jQuery(function ($) {
+//       var lang = getSelectedLanguage()
+//       if(lang !== getSiteLanguage())
+//         setSelectedLanguage(getSiteLanguage());
+//     })
+//   }
+// };
 
 Drupal.behaviors.informing_toggle_lang = {
   attach: function (context, settings) {
@@ -35,8 +73,8 @@ Drupal.behaviors.informing_toggle_lang = {
       block.addClass("processed-no-lang-content")
 
       block.hide().removeClass('hidden')
-      var cards = $('.card-content .views-field-langcode .field-content').each(function() {
-        var lang = $(this).text().toLowerCase()
+
+      var getLangCode = function(lang) {
         switch (lang) {
           case "it":
             lang = "it"
@@ -48,6 +86,28 @@ Drupal.behaviors.informing_toggle_lang = {
             lang = "hr"
             break;
         }
+        return lang
+      }
+
+      var formItem = $(".country-form form [name='field_country_value'] option:selected");
+      var formLang = formItem.val()
+
+      // console.warn("form %s", formLang);
+      if (formLang === 'All' || formLang === 'nl' || getSelectedLanguage() === 'en') {
+        block.hide()
+        return
+      }
+
+      var cards = $('.card-content .views-field-langcode .field-content')
+      if(!cards.size()) {
+        block.hide()
+        return
+      }
+
+      cards
+      .each(function() {
+        var lang = getLangCode($(this).text().toLowerCase())
+        // console.warn("cotnent lang code: %s", lang);
         if (getSelectedLanguage() !== lang)
           block.show()
       })
@@ -55,7 +115,83 @@ Drupal.behaviors.informing_toggle_lang = {
     })
   }
 }
+Drupal.behaviors.informing_country_form = {
+  attach: function (context, settings) {
+    jQuery(function ($) {
 
+      var block = $(".country-form form");
+
+      if(!block.size()) return
+      if(block.is(".processed-country-form")) return
+      block.addClass("processed-country-form")
+
+      var formSelect = block.find('select')
+      var countrySelector = $('.country-selector')
+
+      // formSelect.change(function(ev) {
+      //   var val = $(this).val()
+      //   console.warn("Current form val: %s", val);
+      // })
+
+      var lbl = countrySelector.find('.btn .label')
+      var opts = block.find('select option')
+
+      var label = countrySelector.find('.btn .label')
+      var curr = countrySelector.find('.btn .curr')
+
+      var lang = getSelectedLanguage()
+
+      localStorage.originalMsg = localStorage.originalMsg || label.text()
+      var setLanguage = null
+      var sel = opts.filter(':selected')
+      if (sel.size()) {
+
+        var txt = sel.text()
+        if(sel.val() === 'All') {
+
+          if(lang && lang !== 'en') {
+            setLanguage = lang
+          } else {
+            label.text(Drupal.t("Please select the country of your interest"))
+            block.parent().find('.card-item').remove()
+          }
+
+        }
+        else {
+          label.text(Drupal.t(localStorage.originalMsg))
+          curr.text(sel.text())
+          // console.warn(label.text(), curr.text());
+        }
+
+      }
+
+      opts.each(function() {
+        var match = countrySelector.find('.dropdown-menu li a[href="#'+ $(this).attr('value') +'"]')
+        if(match.size()) {
+          match.text( $(this).text() )
+        }
+      })
+
+      countrySelector.find('.dropdown-menu li a')
+        .on("click", function() {
+
+          var lang = $(this).attr("href").substr(1)
+          formSelect.val(lang)
+          block.find('input[type="submit"]').trigger('click')
+
+          return false;
+        })
+
+      if (setLanguage) {
+        countrySelector.find('.dropdown-menu li a[href="#'+ setLanguage +'"]').trigger('click')
+      }
+
+      block.hide()
+      countrySelector.removeClass('hidden')
+
+    })
+  }
+};
 Drupal.behaviors.informing_translator = {
   attach: function (context, settings) {
     jQuery(function ($) {
@@ -392,77 +528,6 @@ Drupal.behaviors.informing_link_cards = {
       block.on('click', function() {
         document.location = $(this).find(".views-field-name a").attr("href");
       })
-
-    })
-  }
-};
-Drupal.behaviors.informing_country_form = {
-  attach: function (context, settings) {
-    jQuery(function ($) {
-
-      var block = $(".country-form form");
-
-      if(!block.size()) return
-      if(block.is(".processed-country-form")) return
-      block.addClass("processed-country-form")
-
-      var countrySelector = $('.country-selector')
-
-      var lbl = countrySelector.find('.btn .label')
-      var opts = block.find('select option')
-
-      var label = countrySelector.find('.btn .label')
-      var curr = countrySelector.find('.btn .curr')
-
-      var lang = getSelectedLanguage()
-
-      localStorage.originalMsg = localStorage.originalMsg || label.text()
-      var setLanguage = null
-      var sel = opts.filter(':selected')
-      if (sel.size()) {
-
-        var txt = sel.text()
-        if(sel.val() === 'All') {
-
-          if(lang && lang !== 'en') {
-            setLanguage = lang
-          } else {
-            label.text(Drupal.t("Please select the country of your interest"))
-            block.parent().find('.card-item').remove()
-          }
-
-        }
-        else {
-          label.text(Drupal.t(localStorage.originalMsg))
-          curr.text(sel.text())
-          // console.warn(label.text(), curr.text());
-        }
-
-      }
-
-      opts.each(function() {
-        var match = countrySelector.find('.dropdown-menu li a[href="#'+ $(this).attr('value') +'"]')
-        if(match.size()) {
-          match.text( $(this).text() )
-        }
-      })
-
-      countrySelector.find('.dropdown-menu li a')
-        .on("click", function() {
-
-          var lang = $(this).attr("href").substr(1)
-          block.find('select').val(lang)
-          block.find('input[type="submit"]').trigger('click')
-
-          return false;
-        })
-
-      if (setLanguage) {
-        countrySelector.find('.dropdown-menu li a[href="#'+ setLanguage +'"]').trigger('click')
-      }
-
-      block.hide()
-      countrySelector.removeClass('hidden')
 
     })
   }
