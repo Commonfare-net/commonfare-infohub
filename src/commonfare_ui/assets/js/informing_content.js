@@ -264,7 +264,7 @@ Drupal.behaviors.informing_breadcrumb_rewarp = {
         if(lis.index(t) === 0) {
           a = t.find('a')
             // .clone()
-            .attr('href', '/#get-informed')
+            .attr('href', '/#2')
             .text( $('#main-menu li:eq(1) a').text() )
         }
 
