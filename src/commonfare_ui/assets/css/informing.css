@@ -442,27 +442,6 @@ div.copyright, div.copyright .copyright-text a {
 }
 
 
-
-/* mobile smaller than 321px eg iphone5 */
-@media (max-width: 321px) {
-  body h1 {
-    font-size: 1.8em
-  }
-  .path-frontpage #about,
-  .path-frontpage #get-informed
-   {
-    padding-top: 10px;
-  }
-  .commonfare-homepage #about .node__content,
-  .commonfare-homepage #participate .node__content
-  {
-    padding: 10px 0 10px 0;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-
-}
-
 /* Mobile smaller than 768px */
 @media (max-width: 768px) {
 
@@ -769,6 +748,33 @@ div.copyright, div.copyright .copyright-text a {
     max-width: 60%;
   }
 
+}
+
+
+
+/* mobile smaller than 321px eg iphone5 */
+@media (max-width: 321px) {
+  body h1 {
+    font-size: 1.8em
+  }
+  .path-frontpage #about,
+  .path-frontpage #get-informed
+   {
+    padding-top: 0px;
+  }
+  .commonfare-homepage #about .node__content,
+  .commonfare-homepage #participate .node__content
+  {
+    padding: 0px 0 0px 0;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .path-frontpage #about {
+      padding-top: 84px;
+  }
+  .path-frontpage #get-informed {
+      padding-top: 64px;
+  }
 }
 
 /* Small devices (tablets, 768px and up) */
