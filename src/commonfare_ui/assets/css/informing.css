@@ -448,6 +448,19 @@ div.copyright, div.copyright .copyright-text a {
   body h1 {
     font-size: 1.8em
   }
+  .path-frontpage #about,
+  .path-frontpage #get-informed
+   {
+    padding-top: 10px;
+  }
+  .commonfare-homepage #about .node__content,
+  .commonfare-homepage #participate .node__content
+  {
+    padding: 10px 0 10px 0;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
 }
 
 /* Mobile smaller than 768px */
