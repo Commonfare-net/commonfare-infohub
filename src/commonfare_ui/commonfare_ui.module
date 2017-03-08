@@ -77,20 +77,22 @@ function commonfare_ui_preprocess_page__front(array &$variables)
 
 }
 
-// function commonfare_ui_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$breadcrumb, \Drupal\Core\Routing\RouteMatchInterface $route_match, array $context) {
-//   // Add an item to the end of the breadcrumb.
-//   $breadcrumb = new \Drupal\Core\Breadcrumb\Breadcrumb();
-//   // $breadcrumb->addLink(\Drupal\Core\Link::fromTextAndUrl(t('Text'), new \Drupal\Core\Url('<none>')));
-//
-//   $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
-//
-//   $pages = commonfare_ui_get_pages();
-//   $node = \Drupal::entityTypeManager()->getStorage('node')->load($pages['get_informed']);
-//
-//   $node = $node->getTranslation($language);
-//
-//   // $url_object = Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $node->id]);
-//   // $breadcrumb->addLink(\Drupal\Core\Link::fromTextAndUrl($node->getTitle(), $url_object));
-//
-//   //   kint($context, $node->id);
-// }
+function commonfare_ui_views_pre_view(\Drupal\views\ViewExecutable $view, $display_id, array &$args) {
+
+  // Modify contextual filters for my_special_view if user has 'my special permission'.
+  $account = \Drupal::currentUser();
+
+  if ($view->id() == 'measure_list_by_term' && $display_id == 'block_1') {
+    // $args[1] = '';
+    // dpm($view);
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node) {
+      // kint($args);
+      $args[0] = (int) $node->get('field_tags')->get(0)->getString();
+      $args[1] = $node->get('field_country')->get(0)->getString();
+      // kint($args);
+      // die();
+    }
+
+  }
+}

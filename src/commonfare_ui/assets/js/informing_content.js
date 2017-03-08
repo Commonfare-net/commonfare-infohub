@@ -564,8 +564,6 @@ Drupal.behaviors.informing_node_next_prev = {
       var currentIndex = 0
       var listLength = alist.size()
 
-      ilist.hide()
-
       alist.each(function(i, el) {
         if ($(this).text() === title) {
           currentIndex = i
@@ -604,7 +602,9 @@ Drupal.behaviors.informing_node_next_prev = {
         document.location = prevLink
       })
 
+
       block.find('.hidden').removeClass("hidden")
+      // ilist.hide()
 
     })
   }

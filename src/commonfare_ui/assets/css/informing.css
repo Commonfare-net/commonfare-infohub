@@ -442,6 +442,14 @@ div.copyright, div.copyright .copyright-text a {
 }
 
 
+
+/* mobile smaller than 321px eg iphone5 */
+@media (max-width: 321px) {
+  body h1 {
+    font-size: 1.8em
+  }
+}
+
 /* Mobile smaller than 768px */
 @media (max-width: 768px) {
 
