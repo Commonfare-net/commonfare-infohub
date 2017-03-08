@@ -283,7 +283,8 @@ body .main-header .menu-base-theme li
   background-color: #EC6C58 !important;
 }
 
-div.copyright {
+div.copyright, div.copyright a {
+  text-decoration: none;
   font-size: 14px;
   font-family: Asap;
   font-weight: bold;

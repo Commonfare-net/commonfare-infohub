@@ -1,4 +1,14 @@
 
+var commonfareTranslate = function(t) {
+  var t1 = Drupal.t(t)
+  if(t1 === t) {
+    if (drupalSettings.commonfare_ui && drupalSettings.commonfare_ui.i18n && drupalSettings.commonfare_ui.i18n[ t ]) {
+      t1 = drupalSettings.commonfare_ui.i18n[ t ]
+    }
+  }
+  return t1
+}
+
 var loadCurrentLanguage = function(fn) {
   return jQuery(function($) {
     $.get('/lang')
@@ -152,13 +162,13 @@ Drupal.behaviors.informing_country_form = {
           if(lang && lang !== 'en') {
             setLanguage = lang
           } else {
-            label.text(Drupal.t("Please select the country of your interest"))
+            label.text(commonfareTranslate("Please select the country of your interest"))
             block.parent().find('.card-item').remove()
           }
 
         }
         else {
-          label.text(Drupal.t(localStorage.originalMsg))
+          label.text(commonfareTranslate(localStorage.originalMsg))
           curr.text(sel.text())
           // console.warn(label.text(), curr.text());
         }
@@ -203,21 +213,14 @@ Drupal.behaviors.informing_translator = {
         ".button_how a.btn",
         ".no-lang-content",
         ".select_country_msg > h4",
-        ".copyright-text"
+        ".copyright-text a"
       ].join(", "));
       if(!block.size()) return
       if(block.is(".processed-translator")) return
       block.addClass("processed-translator")
 
       block.each(function() {
-        var t = $(this).text()
-        var t1 = Drupal.t($(this).text())
-        if(t1 === t) {
-          if (drupalSettings.commonfare_ui && drupalSettings.commonfare_ui.i18n) {
-            t1 = drupalSettings.commonfare_ui.i18n[ t ]
-          }
-        }
-        // console.warn("%s ==> %s", t, t1);
+        var t1 = commonfareTranslate($(this).text())
         $(this).text( t1 )
       })
 
