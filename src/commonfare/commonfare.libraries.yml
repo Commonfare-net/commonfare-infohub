@@ -15,7 +15,8 @@ hammer:
 scroll:
   version: 1.x
   js:
-    js/jquery.onepage-scroll.min.js: {}
+    # js/jquery.onepage-scroll.min.js: {}
+    js/onepagescroll.min.js: {}
   css:
     theme:
       js/onepage-scroll.css: {}

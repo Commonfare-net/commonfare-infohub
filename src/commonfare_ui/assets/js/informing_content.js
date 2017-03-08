@@ -375,7 +375,8 @@ Drupal.behaviors.informing_home_scrolling = {
   attach: function (context, settings) {
     jQuery(function ($) {
 
-      var block = $(".commonfare-homepage");
+      var selector = ".commonfare-homepage"
+      var block = $(selector);
       if(!block.size()) return
       if(block.is(".processed-commonfare-homepage")) return
       block.addClass("processed-commonfare-homepage")
@@ -386,12 +387,12 @@ Drupal.behaviors.informing_home_scrolling = {
       alist.eq(isMobile() ? 0 : 1).parent().addClass("active")
       $('.copyright').hide()
 
-      block.onepage_scroll({
+      var scrollInstance = onePageScroll(selector, {
          sectionContainer: "section",     // sectionContainer accepts any kind of selector in case you don't want to use section
          easing: "ease",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in",
                                           // "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
          animationTime: 1000,             // AnimationTime let you define how long each section takes to animate
-         pagination: false,                // You can either show or hide the pagination. Toggle true for show, false for hide.
+         pagination: true,                // You can either show or hide the pagination. Toggle true for show, false for hide.
          updateURL: false,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
          beforeMove: function(index) {
 
@@ -443,7 +444,7 @@ Drupal.behaviors.informing_home_scrolling = {
 
       $("#about .button_how").on('click', function() {
         // document.location = document.location.toString().substr(0, document.location.toString().indexOf("#")) + "#get-informed"
-        block.moveDown()
+        moveDown(selector)
       })
 
       alist.on('click', function() {
@@ -453,7 +454,12 @@ Drupal.behaviors.informing_home_scrolling = {
         alist.parent().removeClass("active")
         alist.eq(idx).parent().addClass("active")
 
-        block.moveTo(idx+1)
+        try {
+          moveTo(selector, idx+1)
+        }
+        catch(e) {
+          console.warn(e);
+        }
 
         return false
       })
@@ -461,13 +467,13 @@ Drupal.behaviors.informing_home_scrolling = {
 
       switch (document.location.hash) {
         case "#about":
-          block.moveTo(1)
+          moveTo(selector, 1)
           break
         case "#get-informed":
-          block.moveTo(2)
+          moveTo(selector, 2)
           break
         case "#participate":
-          block.moveTo(3)
+          moveTo(selector, 3)
           break;
       }
 
