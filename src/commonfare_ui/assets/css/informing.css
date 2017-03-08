@@ -616,7 +616,10 @@ div.copyright, div.copyright .copyright-text a {
     padding: 0 15px 0 0;
   }
 
-  .col-md-4.language-selector-container button.btn {
+  .col-md-4.language-selector-container button.btn,
+  .col-md-4.language-selector-container button.btn .label,
+  .col-md-4.language-selector-container button.btn .curr
+   {
     color: inherit !important;
     background-color: transparent !important;
   }
