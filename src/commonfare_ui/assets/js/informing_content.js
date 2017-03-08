@@ -604,7 +604,7 @@ Drupal.behaviors.informing_node_next_prev = {
 
 
       block.find('.hidden').removeClass("hidden")
-      // ilist.hide()
+      ilist.hide()
 
     })
   }
