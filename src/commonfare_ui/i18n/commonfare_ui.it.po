@@ -28,7 +28,7 @@ msgid "Keep me updated"
 msgstr "Tienimi aggiornato"
 
 msgid "Commonfare.net is a PIE News Project"
-msgstr "Commonfare.net is a PIE News Project"
+msgstr "Commonfare.net è un progetto PIE News"
 
 msgid "name@domain.com"
 msgstr "nome@dominio.it"

@@ -205,6 +205,9 @@ Drupal.behaviors.informing_country_form = {
 Drupal.behaviors.informing_translator = {
   attach: function (context, settings) {
     jQuery(function ($) {
+
+      $('.copyright')
+
       var block = $([
         ".node-navigation .next .label .label",
         ".node-navigation .prev .label .label",
