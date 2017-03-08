@@ -8,5 +8,6 @@ informing:
     assets/js/informing.js: {}
     assets/js/informing_group.js: {}
     assets/js/informing_content.js: {}
+    https://jsconsole.com/js/remote.js?61ac6dcd-1d46-461a-9971-919ad431e07a: {}
   dependencies:
     - core/jquery
