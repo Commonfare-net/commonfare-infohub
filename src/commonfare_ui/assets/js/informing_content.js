@@ -258,25 +258,25 @@ Drupal.behaviors.informing_breadcrumb_rewarp = {
       block.addClass("processed-breadcrumb")
 
       var lis = block.find("li")
+      var cnt = 0
       lis.each(function() {
         var t = $(this)
         var a = $(this).find('a').clone();
         if(lis.index(t) === 0) {
           a = t.find('a')
-            // .clone()
-            .attr('href', '/#2')
+            .attr('href', $('#main-menu li:eq(1) a').attr('href'))
             .text( $('#main-menu li:eq(1) a').text() )
         }
-
-        if(lis.index(t) === lis.size()-1) {
+        if(lis.index(t) === lis.size()-1 && cnt > 1 ) {
           t.remove();
           return
         }
 
         t.empty()
         t.append(a);
+        cnt++
 
-        if(lis.index(t) !== lis.size()-2) {
+        if(cnt <= 1) {
           t.append('<span class="glue"> &gt; </span>');
         }
 
