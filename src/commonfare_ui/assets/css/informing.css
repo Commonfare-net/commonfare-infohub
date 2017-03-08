@@ -775,6 +775,15 @@ div.copyright, div.copyright .copyright-text a {
   .path-frontpage #get-informed {
       padding-top: 64px;
   }
+  .commonfare-homepage .card-content .card-item .wrapper {
+    max-height: 40px;
+    min-height: 40px;
+    padding: 0.25em 0.25em;
+    font-size: 1em;
+  }
+  .commonfare-homepage .card-content .card-item .wrapper h4 {
+    margin: 0;
+  }
 }
 
 /* Small devices (tablets, 768px and up) */
