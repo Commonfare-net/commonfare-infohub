@@ -50,15 +50,17 @@ var isCurrentLanguage = function(lang) {
 Drupal.behaviors.load_lang = {
   attach: function (context, settings) {
     jQuery(function ($) {
-      loadCurrentLanguage(function(err, lang) {
-        if(err) {
-          return
-        }
-        localStorage.siteLanguage = lang
-        if (getSiteLanguage() !== lang && getSelectedLanguage() !== getSiteLanguage()) {
-          document.location = jQuery("#block-selettorelingua-2").find("li." + lang + " a").attr('href')
-        }
-      })
+      if(!getSelectedLanguage()) {
+        loadCurrentLanguage(function(err, lang) {
+          if(err) {
+            return
+          }
+          localStorage.siteLanguage = lang
+          if (getSiteLanguage() !== lang && getSelectedLanguage() !== getSiteLanguage()) {
+            document.location = jQuery("#block-selettorelingua-2").find("li." + lang + " a").attr('href')
+          }
+        })
+      }
     })
   }
 };
