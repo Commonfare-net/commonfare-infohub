@@ -259,31 +259,12 @@ Drupal.behaviors.informing_breadcrumb_rewarp = {
       if(block.is(".processed-breadcrumb")) return
       block.addClass("processed-breadcrumb")
 
-      var lis = block.find("li")
-      var cnt = 0
-      lis.each(function() {
-        var t = $(this)
-        var a = $(this).find('a').clone();
-        if(lis.index(t) === 0) {
-          a = t.find('a')
-            .attr('href', $('#main-menu li:eq(1) a').attr('href'))
-            .text( $('#main-menu li:eq(1) a').text() )
-        }
-        if(lis.index(t) === lis.size()-1 && cnt > 1 ) {
-          t.remove();
-          return
-        }
-
-        t.empty()
-        t.append(a);
-        cnt++
-
-        if(cnt <= 1) {
-          t.append('<span class="glue"> &gt; </span>');
-        }
-
-      })
-
+      var info_a = $('#main-menu li:eq(1) a')
+      var tag_a = $('.block-views-blocktaxonomy-term-item-block-2 .term-item .term-name a')
+      var lis = [
+        '<li><a href="'+ info_a.attr('href') +'">'+ info_a.text() +'</a><span class="glue"> &gt; </span></li>',
+        '<li><a href="'+ tag_a.attr('href') +'">'+ tag_a.text() +'</a></li>',
+      ]
 
     })
   }
