@@ -262,10 +262,15 @@ Drupal.behaviors.informing_breadcrumb_rewarp = {
       var info_a = $('#main-menu li:eq(1) a')
       var tag_a = $('.block-views-blocktaxonomy-term-item-block-2 .term-item .term-name a')
       var lis = [
-        '<li><a href="'+ info_a.attr('href') +'">'+ info_a.text() +'</a><span class="glue"> &gt; </span></li>',
-        '<li><a href="'+ tag_a.attr('href') +'">'+ tag_a.text() +'</a></li>',
+        '<ol>',
+          '<li><a href="'+ info_a.attr('href') +'">'+ info_a.text() +'</a><span class="glue"> &gt; </span></li>',
+          '<li><a href="'+ tag_a.attr('href') +'">'+ tag_a.text() +'</a></li>',
+        '</ol>'
       ]
 
+      block.find('ol')hide()
+      block.append(lis.join(''))
+      
     })
   }
 }
