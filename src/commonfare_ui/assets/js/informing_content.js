@@ -268,9 +268,9 @@ Drupal.behaviors.informing_breadcrumb_rewarp = {
         '</ol>'
       ]
 
-      block.find('ol')hide()
+      block.find('ol').hide()
       block.append(lis.join(''))
-      
+
     })
   }
 }
