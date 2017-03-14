@@ -1,49 +1,48 @@
-
-var commonfareTranslate = function(t) {
+var commonfareTranslate = function (t) {
   var t1 = Drupal.t(t)
   if(t1 === t) {
-    if (drupalSettings.commonfare_ui && drupalSettings.commonfare_ui.i18n && drupalSettings.commonfare_ui.i18n[ t ]) {
-      t1 = drupalSettings.commonfare_ui.i18n[ t ]
+    if(drupalSettings.commonfare_ui && drupalSettings.commonfare_ui.i18n && drupalSettings.commonfare_ui.i18n[t]) {
+      t1 = drupalSettings.commonfare_ui.i18n[t]
     }
   }
   return t1
 }
 
-var loadCurrentLanguage = function(fn) {
-  return jQuery(function($) {
+var loadCurrentLanguage = function (fn) {
+  return jQuery(function ($) {
     $.get('/lang')
-      .then(function(res) {
+      .then(function (res) {
         fn(null, JSON.parse(res).lang)
       })
-      .fail(function(err) {
+      .fail(function (err) {
         fn(err)
       })
   })
 }
 
-var getSupportedLanguages = function() {
+var getSupportedLanguages = function () {
   var langsBlock = jQuery("#block-selettorelingua-2")
   return langsBlock.find("ul.links li").map(function () {
     return jQuery(this).attr('class').replace("is-active", '').replace(" ", '')
   })
 }
 
-var getSiteLanguage = function() {
+var getSiteLanguage = function () {
   return jQuery("#block-selettorelingua-2").find("li.is-active").eq(0).attr('class').replace('is-active', '').replace(' ', '')
 }
 
-var setSelectedLanguage = function(lang) {
+var setSelectedLanguage = function (lang) {
   localStorage.language = lang
 }
 
-var getSelectedLanguage = function() {
+var getSelectedLanguage = function () {
   if(!localStorage.language && localStorage.siteLanguage) {
     setSelectedLanguage(localStorage.siteLanguage)
   }
   return localStorage.language
 }
 
-var isCurrentLanguage = function(lang) {
+var isCurrentLanguage = function (lang) {
   return lang === getSelectedLanguage()
 }
 
@@ -51,12 +50,12 @@ Drupal.behaviors.load_lang = {
   attach: function (context, settings) {
     jQuery(function ($) {
       if(!getSelectedLanguage()) {
-        loadCurrentLanguage(function(err, lang) {
+        loadCurrentLanguage(function (err, lang) {
           if(err) {
             return
           }
           localStorage.siteLanguage = lang
-          if (getSiteLanguage() !== lang && getSelectedLanguage() !== getSiteLanguage()) {
+          if(getSiteLanguage() !== lang && getSelectedLanguage() !== getSiteLanguage()) {
             document.location = jQuery("#block-selettorelingua-2").find("li." + lang + " a").attr('href')
           }
         })
@@ -86,8 +85,8 @@ Drupal.behaviors.informing_toggle_lang = {
 
       block.hide().removeClass('hidden')
 
-      var getLangCode = function(lang) {
-        switch (lang) {
+      var getLangCode = function (lang) {
+        switch(lang) {
           case "it":
             lang = "it"
             break;
@@ -105,7 +104,7 @@ Drupal.behaviors.informing_toggle_lang = {
       var formLang = formItem.val()
 
       // console.warn("form %s", formLang);
-      if (formLang === 'All' || formLang === 'nl' || getSelectedLanguage() === 'en') {
+      if(formLang === 'All' || formLang === 'nl' || getSelectedLanguage() === 'en') {
         block.hide()
         return
       }
@@ -117,12 +116,12 @@ Drupal.behaviors.informing_toggle_lang = {
       }
 
       cards
-      .each(function() {
-        var lang = getLangCode($(this).text().toLowerCase())
-        // console.warn("cotnent lang code: %s", lang);
-        if (getSelectedLanguage() !== lang)
-          block.show()
-      })
+        .each(function () {
+          var lang = getLangCode($(this).text().toLowerCase())
+          // console.warn("cotnent lang code: %s", lang);
+          if(getSelectedLanguage() !== lang)
+            block.show()
+        })
 
     })
   }
@@ -156,7 +155,7 @@ Drupal.behaviors.informing_country_form = {
       localStorage.originalMsg = localStorage.originalMsg || label.text()
       var setLanguage = null
       var sel = opts.filter(':selected')
-      if (sel.size()) {
+      if(sel.size()) {
 
         var txt = sel.text()
         if(sel.val() === 'All') {
@@ -168,8 +167,7 @@ Drupal.behaviors.informing_country_form = {
             block.parent().find('.card-item').remove()
           }
 
-        }
-        else {
+        } else {
           label.text(commonfareTranslate(localStorage.originalMsg))
           curr.text(sel.text())
           // console.warn(label.text(), curr.text());
@@ -177,15 +175,15 @@ Drupal.behaviors.informing_country_form = {
 
       }
 
-      opts.each(function() {
-        var match = countrySelector.find('.dropdown-menu li a[href="#'+ $(this).attr('value') +'"]')
+      opts.each(function () {
+        var match = countrySelector.find('.dropdown-menu li a[href="#' + $(this).attr('value') + '"]')
         if(match.size()) {
-          match.text( $(this).text() )
+          match.text($(this).text())
         }
       })
 
       countrySelector.find('.dropdown-menu li a')
-        .on("click", function() {
+        .on("click", function () {
 
           var lang = $(this).attr("href").substr(1)
           formSelect.val(lang)
@@ -194,8 +192,8 @@ Drupal.behaviors.informing_country_form = {
           return false;
         })
 
-      if (setLanguage) {
-        countrySelector.find('.dropdown-menu li a[href="#'+ setLanguage +'"]').trigger('click')
+      if(setLanguage) {
+        countrySelector.find('.dropdown-menu li a[href="#' + setLanguage + '"]').trigger('click')
       }
 
       block.hide()
@@ -224,9 +222,9 @@ Drupal.behaviors.informing_translator = {
       if(block.is(".processed-translator")) return
       block.addClass("processed-translator")
 
-      block.each(function() {
+      block.each(function () {
         var t1 = commonfareTranslate($(this).text())
-        $(this).text( t1 )
+        $(this).text(t1)
       })
 
     })
@@ -263,8 +261,8 @@ Drupal.behaviors.informing_breadcrumb_rewarp = {
       var tag_a = $('.block-views-blocktaxonomy-term-item-block-2 .term-item .term-name a')
       var lis = [
         '<ol>',
-          '<li><a href="'+ info_a.attr('href') +'">'+ info_a.text() +'</a><span class="glue"> &gt; </span></li>',
-          '<li><a href="'+ tag_a.attr('href') +'">'+ tag_a.text() +'</a></li>',
+          '<li><a href="' + info_a.attr('href') + '">' + info_a.text() + '</a><span class="glue"> &gt; </span></li>',
+          '<li><a href="' + tag_a.attr('href') + '">' + tag_a.text() + '</a></li>',
         '</ol>'
       ]
 
@@ -288,8 +286,8 @@ Drupal.behaviors.informing_mobile_accordion = {
 
       block.find('h4').on("click", function () {
 
-        if ($(this).parent().next().is(':visible')) {
-          document.location  = block.find('h4').parent().next().next().find('a').attr('href')
+        if($(this).parent().next().is(':visible')) {
+          document.location = block.find('h4').parent().next().next().find('a').attr('href')
         }
 
         var title = block.find('h4')
@@ -374,49 +372,53 @@ Drupal.behaviors.informing_home_scrolling = {
       $('.copyright').hide()
 
       var scrollInstance = onePageScroll(selector, {
-         sectionContainer: "section",     // sectionContainer accepts any kind of selector in case you don't want to use section
-         easing: "ease",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in",
-                                          // "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
-         animationTime: 1000,             // AnimationTime let you define how long each section takes to animate
-         pagination: true,                // You can either show or hide the pagination. Toggle true for show, false for hide.
-         updateURL: false,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
-         beforeMove: function(index) {
+        sectionContainer: "section", // sectionContainer accepts any kind of selector in case you don't want to use section
+        easing: "ease", // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in",
+        // "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
+        animationTime: 1000, // AnimationTime let you define how long each section takes to animate
+        pagination: true, // You can either show or hide the pagination. Toggle true for show, false for hide.
+        updateURL: false, // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
+        beforeMove: function (index) {
+          index *= 1
 
           if(mm.size() && mm.is(':visible')) {
-             mm.hide()
+            mm.hide()
           }
 
-           if (index !== 1) {
-             $('.about-main-header').fadeOut()
-             $('.main-header').fadeIn()
-           }
+          if(index !== 1) {
+            $('.about-main-header').fadeOut()
+            $('.main-header').fadeIn()
+          }
 
-           if (index !== 3) {
-             $('.copyright').fadeOut()
-           }
+          if(index !== 3) {
+            $('div.copyright').fadeOut()
+          }
 
-         },  // This option accepts a callback function. The function will be called before the page moves.
-         afterMove: function(index) {
+        }, // This option accepts a callback function. The function will be called before the page moves.
+        afterMove: function (index) {
 
-           if (index === 1) {
-             $('.about-main-header').fadeIn()
-             $('.main-header').fadeOut()
-           }
+          index *= 1
 
-           if (index === 3) {
-             $('.copyright').fadeIn()
-           }
+          if(index === 1) {
+            $('.about-main-header').fadeIn()
+            $('.main-header').fadeOut()
+          }
 
-           alist.parent().removeClass("active")
-           var idx = 1;
-           alist.eq(index - idx).parent().addClass("active")
-         },   // This option accepts a callback function. The function will be called after the page moves.
-         loop: false,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
-         keyboard: true,                  // You can activate the keyboard controls
-         responsiveFallback: false,        // You can fallback to normal page scroll by defining the width of the browser in which
-                                          // you want the responsive fallback to be triggered. For example, set this to 600 and whenever
-                                          // the browser's width is less than 600, the fallback will kick in.
-         direction: "vertical"            // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".
+          if(index === 3) {
+            $('div.copyright').fadeIn()
+          }
+
+          alist.parent().removeClass("active")
+          var idx = 1;
+          alist.eq(index - idx).parent().addClass("active")
+
+        }, // This option accepts a callback function. The function will be called after the page moves.
+        loop: false, // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
+        keyboard: true, // You can activate the keyboard controls
+        responsiveFallback: false, // You can fallback to normal page scroll by defining the width of the browser in which
+        // you want the responsive fallback to be triggered. For example, set this to 600 and whenever
+        // the browser's width is less than 600, the fallback will kick in.
+        direction: "vertical" // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".
       });
 
       $('body').height($(window).height())
@@ -428,12 +430,12 @@ Drupal.behaviors.informing_home_scrolling = {
       amheader.show()
       $('.main-header').hide()
 
-      $("#about .button_how").on('click', function() {
+      $("#about .button_how").on('click', function () {
         // document.location = document.location.toString().substr(0, document.location.toString().indexOf("#")) + "#get-informed"
         moveDown(selector)
       })
 
-      alist.on('click', function() {
+      alist.on('click', function () {
 
         var idx = alist.index(this)
 
@@ -441,9 +443,8 @@ Drupal.behaviors.informing_home_scrolling = {
         alist.eq(idx).parent().addClass("active")
 
         try {
-          moveTo(selector, idx+1)
-        }
-        catch(e) {
+          moveTo(selector, idx + 1)
+        } catch(e) {
           console.warn(e);
         }
 
@@ -451,7 +452,7 @@ Drupal.behaviors.informing_home_scrolling = {
       })
 
 
-      switch (document.location.hash) {
+      switch(document.location.hash) {
         case "#about":
           moveTo(selector, 1)
           break
@@ -483,19 +484,19 @@ Drupal.behaviors.informing_language_selector = {
       // load the default language
       getSelectedLanguage()
 
-      var showCurrentLang = function(lang) {
+      var showCurrentLang = function (lang) {
         lang = lang || getSelectedLanguage()
-        var curr = block.find('.dropdown-menu li a[href="#'+ lang +'"]').eq(0).text()
+        var curr = block.find('.dropdown-menu li a[href="#' + lang + '"]').eq(0).text()
         // console.warn(curr, '---', lang)
-        block.find('.curr').each(function() {
-          $(this).text( curr )
+        block.find('.curr').each(function () {
+          $(this).text(curr)
         })
       }
 
-      block.find('.dropdown-menu li a').on('click', function() {
+      block.find('.dropdown-menu li a').on('click', function () {
         var lang = $(this).data('lang')
-        langsList.each(function() {
-          if ($(this).hasClass(lang)) {
+        langsList.each(function () {
+          if($(this).hasClass(lang)) {
             setSelectedLanguage(lang)
             showCurrentLang(lang)
             document.location = $(this).find("a").attr("href")
@@ -505,8 +506,8 @@ Drupal.behaviors.informing_language_selector = {
       })
 
       var isCurrent = isCurrentLanguage(getSiteLanguage())
-      if (localStorage.language && !isCurrent) {
-        block.find('.dropdown-menu li a[href="#'+ localStorage.language +'"]').trigger('click')
+      if(localStorage.language && !isCurrent) {
+        block.find('.dropdown-menu li a[href="#' + localStorage.language + '"]').trigger('click')
       }
 
       showCurrentLang();
@@ -525,7 +526,7 @@ Drupal.behaviors.informing_link_cards = {
       if(block.is(".processed-nn")) return
       block.addClass("processed-nn")
 
-      block.on('click', function() {
+      block.on('click', function () {
         document.location = $(this).find(".views-field-name a").attr("href");
       })
 
@@ -546,12 +547,13 @@ Drupal.behaviors.informing_node_next_prev = {
       var alist = ilist.find('ul > li a');
       var title = $('.region-page-title h1 > span').text()
 
-      var nextLink = null, prevLink = null;
+      var nextLink = null,
+        prevLink = null;
       var currentIndex = 0
       var listLength = alist.size()
 
-      alist.each(function(i, el) {
-        if ($(this).text() === title) {
+      alist.each(function (i, el) {
+        if($(this).text() === title) {
           currentIndex = i
         }
       })
@@ -561,29 +563,27 @@ Drupal.behaviors.informing_node_next_prev = {
       var prev = n.find('.prev')
 
 
-      if (currentIndex === 0) {
+      if(currentIndex === 0) {
         prev.hide()
-      }
-      else {
-        var aprev = alist.eq(currentIndex-1)
+      } else {
+        var aprev = alist.eq(currentIndex - 1)
         prevLink = aprev.attr("href")
-        prev.find('.title').text( aprev.text() )
+        prev.find('.title').text(aprev.text())
       }
 
-      if (currentIndex === listLength-1) {
+      if(currentIndex === listLength - 1) {
         next.hide()
-      }
-      else {
-        var anext = alist.eq(currentIndex+1)
+      } else {
+        var anext = alist.eq(currentIndex + 1)
         nextLink = anext.attr("href")
-        next.find('.title').text( anext.text() )
+        next.find('.title').text(anext.text())
       }
 
-      next.on('click', function() {
+      next.on('click', function () {
         if(nextLink === null) return false
         document.location = nextLink
       })
-      prev.on('click', function() {
+      prev.on('click', function () {
         if(prevLink === null) return false
         document.location = prevLink
       })
