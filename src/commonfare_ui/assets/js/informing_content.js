@@ -1,3 +1,10 @@
+
+var getQueryString = function() {
+  var a= {};
+  document.location.search.substr(1).split('&').map(function(e) { return e.split('=') }).map(function(e) { if(e[0])  a[e[0]] = e[1] });
+  return a
+}
+
 var commonfareTranslate = function (t) {
   var t1 = Drupal.t(t)
   if(t1 === t) {
@@ -541,7 +548,7 @@ Drupal.behaviors.informing_link_cards = {
 
       block.on('click', function () {
         document.location.hash = '2'
-        document.location = $(this).find(".views-field-name a").attr("href");
+        document.location = $(this).find(".views-field-name a").attr("href") + '?language=' + getSelectedLanguage();
         return false
       })
 
