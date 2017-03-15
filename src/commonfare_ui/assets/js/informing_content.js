@@ -35,6 +35,10 @@ var getSupportedLanguages = function () {
 }
 
 var getSiteLanguage = function () {
+  var qs = getQueryString()
+  if(qs.language) {
+    return qs.language
+  }
   return jQuery("#block-selettorelingua-2").find("li.is-active").eq(0).attr('class').replace('is-active', '').replace(' ', '')
 }
 
