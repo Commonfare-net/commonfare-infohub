@@ -520,7 +520,7 @@ Drupal.behaviors.informing_language_selector = {
       var isCurrent = isCurrentLanguage(getSiteLanguage())
       if(localStorage.language && !isCurrent) {
         console.log("lang set %s but current differ!", localStorage.language, getSiteLanguage());
-        // block.find('.dropdown-menu li a[href="#' + localStorage.language + '"]').trigger('click')
+        block.find('.dropdown-menu li a[href="#' + localStorage.language + '"]').trigger('click')
       }
 
       showCurrentLang();
