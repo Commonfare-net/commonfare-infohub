@@ -56,7 +56,9 @@ Drupal.behaviors.load_lang = {
           }
           localStorage.siteLanguage = lang
           if(getSiteLanguage() !== lang && getSelectedLanguage() !== getSiteLanguage()) {
-            document.location = jQuery("#block-selettorelingua-2").find("li." + lang + " a").attr('href')
+            var path = jQuery("#block-selettorelingua-2").find("li." + lang + " a").attr('href')
+            console.log("lang redirect %s", path);
+            document.location = path
           }
         })
       }
@@ -126,6 +128,8 @@ Drupal.behaviors.informing_toggle_lang = {
     })
   }
 }
+
+var lastLangRequested = null
 Drupal.behaviors.informing_country_form = {
   attach: function (context, settings) {
     jQuery(function ($) {
@@ -153,8 +157,9 @@ Drupal.behaviors.informing_country_form = {
       var lang = getSelectedLanguage()
 
       localStorage.originalMsg = localStorage.originalMsg || label.text()
-      var setLanguage = null
+      var setLanguage = localStorage.country
       var sel = opts.filter(':selected')
+
       if(sel.size()) {
 
         var txt = sel.text()
@@ -170,7 +175,6 @@ Drupal.behaviors.informing_country_form = {
         } else {
           label.text(commonfareTranslate(localStorage.originalMsg))
           curr.text(sel.text())
-          // console.warn(label.text(), curr.text());
         }
 
       }
@@ -188,12 +192,18 @@ Drupal.behaviors.informing_country_form = {
           var lang = $(this).attr("href").substr(1)
           formSelect.val(lang)
           block.find('input[type="submit"]').trigger('click')
+          localStorage.country = lang
 
           return false;
         })
 
       if(setLanguage) {
-        countrySelector.find('.dropdown-menu li a[href="#' + setLanguage + '"]').trigger('click')
+        setTimeout(function() {
+          if (lastLangRequested === setLanguage)
+            return
+          lastLangRequested = setLanguage
+          countrySelector.find('.dropdown-menu li a[href="#' + setLanguage + '"]').trigger('click')
+        }, 500)
       }
 
       block.hide()
@@ -266,7 +276,7 @@ Drupal.behaviors.informing_breadcrumb_rewarp = {
         '</ol>'
       ]
 
-      block.find('ol').hide()
+      block.find('ol,ul').hide()
       block.append(lis.join(''))
 
     })
@@ -499,7 +509,9 @@ Drupal.behaviors.informing_language_selector = {
           if($(this).hasClass(lang)) {
             setSelectedLanguage(lang)
             showCurrentLang(lang)
-            document.location = $(this).find("a").attr("href")
+            var dest = $(this).find("a").attr("href")
+            // console.log("redirecting %s", dest);
+            document.location = dest
           }
         })
         return false
@@ -507,6 +519,7 @@ Drupal.behaviors.informing_language_selector = {
 
       var isCurrent = isCurrentLanguage(getSiteLanguage())
       if(localStorage.language && !isCurrent) {
+        console.log("lang set %s but current differ!", localStorage.language, getSiteLanguage());
         block.find('.dropdown-menu li a[href="#' + localStorage.language + '"]').trigger('click')
       }
 
@@ -527,7 +540,9 @@ Drupal.behaviors.informing_link_cards = {
       block.addClass("processed-nn")
 
       block.on('click', function () {
+        document.location.hash = '2'
         document.location = $(this).find(".views-field-name a").attr("href");
+        return false
       })
 
     })
@@ -546,6 +561,7 @@ Drupal.behaviors.informing_node_next_prev = {
       var ilist = block.find('.item-list')
       var alist = ilist.find('ul > li a');
       var title = $('.region-page-title h1 > span').text()
+      var current_path = document.location.pathname
 
       var nextLink = null,
         prevLink = null;
@@ -553,7 +569,7 @@ Drupal.behaviors.informing_node_next_prev = {
       var listLength = alist.size()
 
       alist.each(function (i, el) {
-        if($(this).text() === title) {
+        if($(this).attr('href') === current_path) {
           currentIndex = i
         }
       })
@@ -561,7 +577,6 @@ Drupal.behaviors.informing_node_next_prev = {
       var n = $('.node-navigation')
       var next = n.find('.next')
       var prev = n.find('.prev')
-
 
       if(currentIndex === 0) {
         prev.hide()
