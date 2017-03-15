@@ -607,13 +607,12 @@ Drupal.behaviors.informing_node_next_prev = {
 
       next.on('click', function () {
         if(nextLink === null) return false
-        document.location = nextLink
+        document.location = nextLink + '?language=' + getSelectedLanguage()
       })
       prev.on('click', function () {
         if(prevLink === null) return false
-        document.location = prevLink
+        document.location = prevLink + '?language=' + getSelectedLanguage()
       })
-
 
       block.find('.hidden').removeClass("hidden")
       ilist.hide()
