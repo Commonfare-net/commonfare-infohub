@@ -1,4 +1,10 @@
 
+var parseUrl = function(href) {
+  var parser = document.createElement('a');
+  parser.href = href
+  return parser
+}
+
 var getQueryString = function() {
   var a= {};
   document.location.search.substr(1).split('&').map(function(e) { return e.split('=') }).map(function(e) { if(e[0])  a[e[0]] = e[1] });
@@ -531,7 +537,12 @@ Drupal.behaviors.informing_language_selector = {
           if($(this).hasClass(lang)) {
             setSelectedLanguage(lang)
             showCurrentLang(lang)
+
             var dest = $(this).find("a").attr("href")
+            var url = parseUrl(dest)
+            url.search = "?language=" + lang
+            dest = url.href
+
             // console.log("redirecting %s", dest);
             document.location = dest
           }
