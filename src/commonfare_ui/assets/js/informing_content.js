@@ -50,6 +50,11 @@ var getSelectedLanguage = function () {
   if(!localStorage.language && localStorage.siteLanguage) {
     setSelectedLanguage(localStorage.siteLanguage)
   }
+  // give priority to url modifier!
+  var qs = getQueryString()
+  if(qs.language) {
+    localStorage.language = qs.language
+  }
   return localStorage.language
 }
 
@@ -210,15 +215,21 @@ Drupal.behaviors.informing_country_form = {
 
       if(setLanguage) {
         setTimeout(function() {
+
+          countrySelector.removeClass('hidden')
+
           if (lastLangRequested === setLanguage)
             return
+
           lastLangRequested = setLanguage
           countrySelector.find('.dropdown-menu li a[href="#' + setLanguage + '"]').trigger('click')
-        }, 500)
+        }, 300)
+      }
+      else {
+        countrySelector.removeClass('hidden')
       }
 
       block.hide()
-      countrySelector.removeClass('hidden')
 
     })
   }
