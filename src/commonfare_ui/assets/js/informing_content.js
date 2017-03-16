@@ -219,10 +219,12 @@ Drupal.behaviors.informing_country_form = {
           return false;
         })
 
+
+      block.hide()
+      countrySelector.removeClass('hidden')
+
       if(setLanguage) {
         setTimeout(function() {
-
-          countrySelector.removeClass('hidden')
 
           if (lastLangRequested === setLanguage)
             return
@@ -231,11 +233,6 @@ Drupal.behaviors.informing_country_form = {
           countrySelector.find('.dropdown-menu li a[href="#' + setLanguage + '"]').trigger('click')
         }, 300)
       }
-      else {
-        countrySelector.removeClass('hidden')
-      }
-
-      block.hide()
 
     })
   }
