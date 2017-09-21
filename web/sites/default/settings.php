@@ -15,6 +15,8 @@ $settings['trusted_host_patterns'] = array(
   '^drupalvm\.dev$',
   '^localhost$',
   '^192.168.32.246$',
+  '^.+\.commonfare\.local$',
+  '^.+\.docker-ict4g\.fbk.\eu$',
   '^www.commonfare.ddns.net$',
 );
 $settings['file_scan_ignore_directories'] = [

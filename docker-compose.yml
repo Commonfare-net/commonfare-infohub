@@ -17,7 +17,7 @@ services:
     image: wodby/drupal-php:7.0 # Allowed: 7.0, 5.6.
     environment:
       PHP_SITE_NAME: dev
-      PHP_HOST_NAME: localhost:8000
+      PHP_HOST_NAME: nginx:80
 #      PHP_DOCROOT: public # Relative path inside the /var/www/html/ directory.
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
       # PHP_XDEBUG_ENABLED: 1
@@ -35,6 +35,7 @@ services:
       NGINX_UPSTREAM_NAME: php
       NGINX_DOCROOT: web # Relative path inside the /var/www/html/ directory.
       DRUPAL_VERSION: 8 # Allowed: 7, 8.
+      VIRTUAL_HOST: cf-infohub.docker-ict4g.fbk.eu # nginx-proxy configuration
     volumes_from:
       - php
     ports:
@@ -100,3 +101,8 @@ services:
 #      - php
 #    ports:
 #      - "8006:22"
+
+networks:
+  default:
+    external:
+      name: commonfare-nginx-proxy
