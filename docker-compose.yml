@@ -35,7 +35,7 @@ services:
       NGINX_UPSTREAM_NAME: php
       NGINX_DOCROOT: web # Relative path inside the /var/www/html/ directory.
       DRUPAL_VERSION: 8 # Allowed: 7, 8.
-      VIRTUAL_HOST: cf-infohub.docker-ict4g.fbk.eu # nginx-proxy configuration
+      VIRTUAL_HOST: cf-infohub.fbk.eu # nginx-proxy configuration
     volumes_from:
       - php
     ports:
