@@ -472,6 +472,15 @@ Drupal.behaviors.informing_home_scrolling = {
 
       alist.on('click', function () {
 
+        // In case it is an external link starting with 'http' we let it work
+        // as a standard link
+        var href = $(this).attr('href')
+        var isExternalLink = href.indexOf('http') == 0;
+        if (isExternalLink) {
+          document.location(href);
+          return;
+        }
+
         var idx = alist.index(this)
 
         alist.parent().removeClass("active")
