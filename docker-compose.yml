@@ -36,6 +36,8 @@ services:
       NGINX_DOCROOT: web # Relative path inside the /var/www/html/ directory.
       DRUPAL_VERSION: 8 # Allowed: 7, 8.
       VIRTUAL_HOST: infohub.commonfare.net # nginx-proxy configuration
+      HTTPS_METHOD: nohttps
++     HTTPS_METHOD: noredirect
     volumes_from:
       - php
     ports:
